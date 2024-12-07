@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom CSS */
+.dotted-background {
+    background-position: 0 0, 14px 14px;
+    background-size: 16px 16px;
+    width: 100%;
+
+    background-image: radial-gradient(#181818 5%, #0000001f 15%);
+    background-color: #000;
+    position: absolute !important;
+}
