@@ -1,0 +1,24 @@
+{
+    "name": "golangbd",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "vite",
+        "build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
+        "watch": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch",
+        "dev": "vite build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.4.49",
+        "tailwindcss": "^3.4.16",
+        "vite": "^6.0.3"
+    },
+    "dependencies": {
+        "flyonui": "^1.1.0"
+    }
+}
