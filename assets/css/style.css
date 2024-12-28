@@ -4685,6 +4685,10 @@ textarea:focus-visible {
   top: 100%;
 }
 
+.start-0 {
+  inset-inline-start: 0px;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -4787,6 +4791,18 @@ textarea:focus-visible {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.-mt-\[90px\] {
+  margin-top: -90px;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .block {
@@ -4893,6 +4909,10 @@ textarea:focus-visible {
 
 .h-full {
   height: 100%;
+}
+
+.h-svh {
+  height: 100svh;
 }
 
 .w-6 {
@@ -5010,6 +5030,10 @@ textarea:focus-visible {
 
 .flex-nowrap {
   flex-wrap: nowrap;
+}
+
+.place-items-center {
+  place-items: center;
 }
 
 .items-center {
@@ -5224,6 +5248,14 @@ textarea:focus-visible {
   background-color: rgb(255 255 255 / 0.05);
 }
 
+.bg-slate-950\/80 {
+  background-color: rgb(2 6 23 / 0.8);
+}
+
+.bg-slate-950\/40 {
+  background-color: rgb(2 6 23 / 0.4);
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -5426,6 +5458,16 @@ textarea:focus-visible {
   padding-bottom: 1.5rem;
 }
 
+.py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .pb-6 {
   padding-bottom: 1.5rem;
 }
@@ -5448,6 +5490,22 @@ textarea:focus-visible {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
 }
 
 .text-center {
@@ -5717,6 +5775,12 @@ textarea:focus-visible {
 
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+.backdrop-blur {
+  --tw-backdrop-blur: blur(8px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -6112,6 +6176,10 @@ textarea:focus-visible {
 
   .md\:pt-24 {
     padding-top: 6rem;
+  }
+
+  .md\:pb-6 {
+    padding-bottom: 1.5rem;
   }
 
   .md\:text-\[36px\] {
