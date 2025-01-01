@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoLangBD</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="antialiased relative isolate overflow-hidden bg-slate-950 px-6  lg:overflow-visible lg:px-0">
+    <!-- Background shape -start -->
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+        <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-slate-900 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+            aria-hidden="true">
+            <defs>
+                <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1"
+                    patternUnits="userSpaceOnUse">
+                    <path d="M100 200V.5M.5 .5H200" fill="none" />
+                </pattern>
+            </defs>
+            <svg x="50%" y="-1" class="overflow-visible fill-slate-900 opacity-45">
+                <path
+                    d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+                    stroke-width="0" />
+            </svg>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
+        </svg>
+    </div>
+    <!-- Background shape -end -->
+
+    <!-- Header with nav menu -start -->
+    <header class="sticky top-0 z-50 container bg-slate-950/40 backdrop-blur start-0">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">goLangBD</span>
+                    <!-- <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt=""> -->
+                    <h1
+                        class="text-3xl font-bold bg-gradient-to-tr from-slate-800 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">
+                        GoLangBD</h1>
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-10">
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">Home</a>
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">Documentation</a>
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">About</a>
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">Community</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">Log in <span
+                        aria-hidden="true">&rarr;</span></a>
+            </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div class="lg:hidden hidden" role="dialog" aria-modal="true">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-0 z-50"></div>
+            <div
+                class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">GoLangBD</span>
+                        <h1
+                            class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-6 leading-snug">
+                            GoLangBD</h1>
+                    </a>
+                    <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Close menu</span>
+                        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
+                                in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header with nav menu -end -->
+
+    <section class="relative isolate px-0 sm:px-3 md:px-5 lg:px-8 h-svh grid place-items-center -mt-[90px] py-20">
+        <!-- Background element -start -->
+        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 opacity-40"
+            aria-hidden="true">
+            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+            </div>
+        </div>
+        <!-- Background element -end -->
+        <div class="mx-auto max-w-3xl">
+            <div class="flex justify-center mb-5">
+                <button class="px-4 py-2 rounded-md text-white text-center relative overflow-hidden">
+                    <div class="z-10 flex mb-6 items-center justify-center">
+                        <div
+                            class="group relative mx-auto flex max-w-fit flex-row items-center justify-center rounded-2xl bg-black/40 px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#8fdfff1f] backdrop-blur-sm transition-shadow duration-500 ease-out [--bg-size:300%] hover:shadow-[inset_0_-5px_10px_#8fdfff3f]">
+                            <div
+                                class="absolute inset-0 block h-full w-full animate-gradient bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:var(--bg-size)_100%] p-[1px] ![mask-composite:subtract] [border-radius:inherit] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)]">
+                            </div>🎉
+                            <hr class="mx-2 h-4 w-px shrink-0 bg-gray-300"> <span
+                                class="inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent">Announcing
+                                our next Golang friday night meeting </span><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-chevron-right ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="text-center">
+                <h1
+                    class="text-2xl sm:text-[30px] md:text-[36px] lg:text-[50px] font-extrabold bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 bg-clip-text text-transparent pb-10 md:leading-[1.3] ">
+                    GoLang: Simple, Fast, Scalable Programming Language</h1>
+                <p class="mb-8 text-pretty text-base md:text-lg font-medium text-gray-300 sm:text-xl/8">
+                    GoLang simplifies coding with speed, concurrency, and scalability, empowering developers to
+                    build efficient, reliable, and modern software for any platform.
+                </p>
+                <div class="pt-6 flex items-center justify-center gap-x-6 relative z-50">
+                    <a href="https://discord.gg/yFXUqfAA" target="_blank"
+                        class="rounded-md inline-flex gap-2 items-center bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 relative z-50">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.6361 3.87549C17.212 3.20919 15.6893 2.72495 14.0973 2.44922C13.9018 2.8027 13.6734 3.27813 13.5159 3.65633C11.8236 3.40184 10.1469 3.40184 8.48573 3.65633C8.32828 3.27813 8.09467 2.8027 7.89741 2.44922C6.30374 2.72495 4.77928 3.21097 3.35518 3.87902C0.482756 8.21962 -0.29591 12.4524 0.0934236 16.6251C1.99856 18.0478 3.84487 18.9121 5.66003 19.4776C6.1082 18.8608 6.50791 18.2051 6.85224 17.5141C6.19644 17.2649 5.56832 16.9574 4.97482 16.6004C5.13227 16.4837 5.28628 16.3618 5.43508 16.2363C9.05501 17.9294 12.9882 17.9294 16.5648 16.2363C16.7154 16.3618 16.8694 16.4837 17.0251 16.6004C16.4299 16.9591 15.8 17.2666 15.1442 17.5159C15.4885 18.2051 15.8865 18.8626 16.3364 19.4794C18.1533 18.9138 20.0014 18.0496 21.9065 16.6251C22.3633 11.7879 21.1261 7.59397 18.6361 3.87549ZM7.34541 14.0589C6.25874 14.0589 5.36759 13.0445 5.36759 11.8091C5.36759 10.5737 6.23972 9.5575 7.34541 9.5575C8.45114 9.5575 9.34226 10.5719 9.32323 11.8091C9.32495 13.0445 8.45114 14.0589 7.34541 14.0589ZM14.6545 14.0589C13.5678 14.0589 12.6767 13.0445 12.6767 11.8091C12.6767 10.5737 13.5488 9.5575 14.6545 9.5575C15.7602 9.5575 16.6514 10.5719 16.6323 11.8091C16.6323 13.0445 15.7602 14.0589 14.6545 14.0589Z"
+                                fill="white" />
+                        </svg>
+
+                        Join Discord Community
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] opacity-40"
+            aria-hidden="true">
+            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-12 pb-6 relative isolate overflow-hidden ">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 md:gap-14">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-400">GoLanBD</h3>
+                    <p class="text-gray-400">Empowering developers with a modern, efficient programming language.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-blue-400">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Documentation</a></li>
+                        <li><a href="https://www.youtube.com/@MASTERACADEMY4"
+                                class="text-gray-400 hover:text-white">Tutorials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Playground</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-blue-400">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">GitHub</a></li>
+                        <li><a href="https://discord.gg/yFXUqfAA" target="_blank"
+                                class="text-gray-400 hover:text-white">Discord</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Stack Overflow</a></li>
+                        <li><a href="https://www.youtube.com/@MASTERACADEMY4" target="_blank"
+                                class="text-gray-400 hover:text-white">Youtube</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-blue-400">Important Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center">
+                <p class="text-gray-500">© 2024 GoLan. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+            <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-10"
+                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

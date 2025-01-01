@@ -107,7 +107,7 @@
 }
 
 /*
-! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -639,6 +639,14 @@ html {
   --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3'/%3E%3C/svg%3E");
 }
 
+.icon-\[tabler--trending-down\] {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='m3 7l6 6l4-4l8 8'/%3E%3Cpath d='M21 10v7h-7'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.icon-\[tabler--trending-up\] {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='m3 17l6-6l4 4l8-8'/%3E%3Cpath d='M14 7h7v7'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 :root {
   color-scheme: light;
   --rounded-box: 0.5rem ;
@@ -862,7 +870,7 @@ html {
   border-width: var(--border-btn, 1px);
   transition-property: color, background-color, border-color, opacity, box-shadow, transform;
   --tw-text-opacity: 1;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
   --tw-shadow: 0 2px 4px 0 var(--fallback-bs,oklch(var(--bs)/0.26));
   --tw-shadow-colored: 0 2px 4px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -901,24 +909,14 @@ html {
 
 .carousel {
   position: relative;
-  min-height: 20rem;
   width: 100%;
   overflow: hidden;
   border-radius: 1rem;
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
 }
 
 .carousel-body {
-  position: absolute;
-  bottom: 0px;
-  inset-inline-start: 0px;
-  top: 0px;
   display: flex;
   flex-wrap: nowrap;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 700ms;
 }
 
 .carousel-prev,
@@ -953,31 +951,42 @@ html {
   border-end-end-radius: 1rem;
 }
 
-.carousel-pagination {
-  position: absolute;
-  bottom: 0.75rem;
-  inset-inline-end: 0px;
-  inset-inline-start: 0px;
-  display: flex;
-  justify-content: center;
+.active.carousel-box {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
-.carousel-pagination > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+.active .carousel-box {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
-.carousel-pagination:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 1;
+.active.carousel-dot {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
-.carousel-pagination .carousel-dot {
-  height: 0.25rem;
-  width: 2.5rem;
+.active .carousel-dot {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.checkbox {
+  flex-shrink: 0;
+  --chkbg: var(--fallback-n,oklch(var(--n)/1));
+  --chkfg: var(--fallback-nc,oklch(var(--nc)/1));
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
   cursor: pointer;
-  border-radius: 9999px;
-  background-color: var(--fallback-bc,oklch(var(--bc)/0.25));
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: var(--rounded-btn, 0.375rem);
+  border-width: 1.5px;
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.4));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .collapse:not(td):not(tr):not(colgroup) {
@@ -997,7 +1006,7 @@ html {
   transition-duration: 300ms;
   border-radius: var(--rounded-box, 0.5rem);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   --tw-shadow: 0 10px 15px -2px var(--fallback-bs,oklch(var(--bs)/0.34));
   --tw-shadow-colored: 0 10px 15px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1076,7 +1085,7 @@ html {
   border-width: 1px;
   border-color: var(--fallback-bc,oklch(var(--bc)/0.4));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   color: var(--fallback-bc,oklch(var(--bc)/0.8));
   transition: border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -1187,50 +1196,50 @@ html {
 @media (hover:hover) {
   .label a:hover {
     --tw-text-opacity: 1;
-    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
   }
 
-  .menu li:not(.disabled, :disabled, [disabled]) > *:not(ul, .menu-title, .collapse, .btn):active,
-.menu li:not(.disabled, :disabled, [disabled]) > *:not(ul, .menu-title, .collapse, .btn).active {
+  .menu li:not(.disabled, :disabled, [disabled]) > :not(ul, .menu-title, .collapse, .btn):active,
+.menu li:not(.disabled, :disabled, [disabled]) > :not(ul, .menu-title, .collapse, .btn).active {
     background-color: var(--fallback-p,oklch(var(--p)/0.1));
     --tw-text-opacity: 1;
-    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   }
 
   .radio.is-valid:hover,
 .validate .radio:valid:hover {
     --tw-border-opacity: 1 !important;
-    border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+    border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
   }
 
   .radio.is-invalid:hover,
 .validate .radio:invalid:hover {
     --tw-border-opacity: 1 !important;
-    border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+    border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
   }
 
   .radio-inset.is-valid:hover,
 .validate .radio-inset:valid:hover {
     --tw-border-opacity: 1 !important;
-    border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+    border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
   }
 
   .radio-inset.is-invalid:hover,
 .validate .radio-inset:invalid:hover {
     --tw-border-opacity: 1 !important;
-    border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+    border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
   }
 
   .tabs-bordered > .tab:hover {
     border-color: var(--fallback-p,oklch(var(--p)/0.3));
     --tw-text-opacity: 1;
-    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   }
 
   .tabs-lifted > .tab:hover {
     border-color: var(--fallback-p,oklch(var(--p)/0.3));
     --tw-text-opacity: 1;
-    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   }
 
   .table tr.hover:hover,
@@ -1251,7 +1260,7 @@ html {
   gap: 0.125rem;
   border-radius: var(--rounded-box, 0.5rem);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   padding: 0.5rem;
 }
 
@@ -1299,7 +1308,7 @@ html {
   border-width: 1px;
   border-color: var(--fallback-bc,oklch(var(--bc)/0.25));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   transition: border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
 }
@@ -1312,7 +1321,7 @@ html {
   border-radius: 9999px;
   --progress-color: var(--fallback-n,oklch(var(--n)/1));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
 }
 
 .progress-bar {
@@ -1331,9 +1340,9 @@ html {
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity, 1)));
   --tw-text-opacity: 1;
-  color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity)));
+  color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity, 1)));
 }
 
 .select {
@@ -1356,7 +1365,7 @@ html {
   border-width: 1px;
   border-color: var(--fallback-bc,oklch(var(--bc)/0.4));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   color: var(--fallback-bc,oklch(var(--bc)/0.8));
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'><path fill='none' stroke='%239293AE' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9l6 6l6-6'/></svg>");
   background-size: 1.3em;
@@ -1462,7 +1471,7 @@ html {
   top: 0px;
   z-index: 1;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .table :where(.table-pin-rows tfoot tr) {
@@ -1470,7 +1479,7 @@ html {
   bottom: 0px;
   z-index: 1;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .table :where(.table-pin-cols tr th) {
@@ -1478,7 +1487,7 @@ html {
   inset-inline-end: 0px;
   inset-inline-start: 0px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .textarea {
@@ -1543,7 +1552,7 @@ html {
   margin-bottom: 0.5rem;
   border-radius: var(--rounded-box, 0.5rem);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   --tw-shadow: 0 4px 6px -1px var(--fallback-bs,oklch(var(--bs)/0.2));
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1579,24 +1588,7 @@ html {
   border-width: 1px;
   border-color: var(--fallback-bc,oklch(var(--bc)/0.25));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
-}
-
-.accordion-treeview-root .tree-view-space {
-  position: relative;
-  margin-inline-start: 1rem;
-  padding-inline-start: 1rem;
-}
-
-.accordion-treeview-root .tree-view-space::before {
-  position: absolute;
-  inset-inline-start: 0px;
-  top: 0px;
-  margin-inline-start: -0.125rem;
-  height: 100%;
-  width: 0.125rem;
-  content: var(--tw-content);
-  background-color: var(--fallback-bc,oklch(var(--bc)/0.4));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .disabled.advance-select-toggle {
@@ -1631,14 +1623,14 @@ html {
   .advance-select-option:active {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 select.is-valid + .advance-select-toggle,
 .advance-select-tag:has(> .is-valid),
 .validate select:has(~ * > .selected) + .advance-select-toggle {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 select.is-valid + .advance-select-toggle:focus,
@@ -1648,7 +1640,7 @@ select.is-valid + .advance-select-toggle:focus,
   .validate select:has(~ * > .selected) + .advance-select-toggle:focus,
   .validate select:has(~ * > .selected) + .advance-select-toggle:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -1658,14 +1650,14 @@ select.is-valid + .advance-select-toggle:focus,
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 select.is-invalid + .advance-select-toggle,
 .advance-select-tag:has(> .is-invalid),
 .validate select:not(:has(~ * > .selected)) + .advance-select-toggle {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 select.is-invalid + .advance-select-toggle:focus,
@@ -1675,7 +1667,7 @@ select.is-invalid + .advance-select-toggle:focus,
   .validate select:not(:has(~ * > .selected)) + .advance-select-toggle:focus,
   .validate select:not(:has(~ * > .selected)) + .advance-select-toggle:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -1685,38 +1677,38 @@ select.is-invalid + .advance-select-toggle:focus,
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity, 1)));
 }
 
-.validate .label:has(+ * > .is-valid) > *,
-.validate .advance-select:has(> select.is-valid) ~ .label,
-.validate .advance-select:has(> select.is-valid) ~ .label .label-text,
-.validate .label:has(~ .advance-select > * > .selected) > *,
-.validate .advance-select:has(> * > .selected) ~ .label,
-.validate .advance-select:has(> * > .selected) ~ .label .label-text {
+.validate .label:has(~ .advance-select > select:valid) > *,
+.validate .label-text:has(~ .advance-select > select:valid),
+
+.validate .advance-select:has(> select:valid) ~ .label,
+.validate .advance-select:has(> select:valid) ~ .label-text,
+.validate .advance-select:has(> select:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .is-invalid) > *,
-.validate .advance-select:has(> select.is-invalid) ~ .label,
-.validate .advance-select:has(> select.is-invalid) ~ .label .label-text,
-.validate .label:has(+ .advance-select:not(> .selected)) > *,
-.validate .advance-select:not(:has(> * > .selected)) ~ .label,
-.validate .advance-select:not(:has(> * > .selected)) ~ .label .label-text {
+.validate .label:has(~ * > select:invalid) > *,
+.validate .label-text:has(~ * > select:invalid),
+
+.validate .advance-select:has( > select:invalid) ~ .label,
+.validate .advance-select:has(> select:invalid) ~ .label-text,
+.validate .advance-select:has( > select:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .is-invalid) ~ * > .success-message,
-.validate .advance-select:has(> select.is-valid) ~ * > .success-message,
-.validate .advance-select:has(> select.is-valid) ~ .success-message {
+.validate .label ~ *:has(> select:valid) ~ * > .success-message,
+.validate .advance-select:has(> select:valid) ~ * > .success-message,
+.validate .advance-select:has(> select:valid) ~ .success-message {
   display: block;
 }
 
-.validate .label ~ *:has(> select.is-invalid) ~ * > .error-message,
-.validate .advance-select:has(> select.is-invalid) ~ * > .error-message,
-.validate .advance-select:has(> select.is-invalid) ~ .error-message {
+.validate .label ~ *:has(> select:invalid) ~ * > .error-message,
+.validate .advance-select:has(> select:invalid) ~ * > .error-message,
+.validate .advance-select:has(> select:invalid) ~ .error-message {
   display: block;
 }
 
@@ -1724,7 +1716,7 @@ select.is-invalid + .advance-select-toggle:focus,
   border-radius: 9999px;
   border-width: 2px;
   --tw-border-opacity: 1;
-  border-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-border-opacity)));
+  border-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-border-opacity, 1)));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1823,7 +1815,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
   .btn-outline.btn-primary:hover {
     --tw-border-opacity: 1;
-    border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+    border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
     background-color: var(--fallback-p,oklch(var(--p)/0.1));
   }
 
@@ -1862,6 +1854,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
   .btn-disabled:hover,
     .btn[disabled]:hover,
+    .btn.disabled:hover,
     .btn:disabled:hover {
     opacity: 0.5;
     --tw-shadow: 0 0 #0000;
@@ -1891,7 +1884,7 @@ select.is-invalid + .advance-select-toggle:focus,
   .tab[disabled]:hover {
     pointer-events: none;
     border-color: var(--fallback-bc,oklch(var(--bc)/0.1));
-    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+    color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
     --tw-text-opacity: 0.4;
   }
 }
@@ -1911,7 +1904,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-primary {
   --tw-text-opacity: 1;
-  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-p,oklch(var(--p)/0.3));
 }
 
@@ -1947,7 +1940,7 @@ select.is-invalid + .advance-select-toggle:focus,
   border-style: none;
   background-color: var(--fallback-n,oklch(var(--n)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1971,7 +1964,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-primary {
   background-color: var(--fallback-p,oklch(var(--p)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-p,oklch(var(--p)/0.5));
 }
 
@@ -1987,7 +1980,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-secondary {
   background-color: var(--fallback-s,oklch(var(--s)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-s,oklch(var(--s)/0.5));
 }
 
@@ -2003,7 +1996,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-accent {
   background-color: var(--fallback-a,oklch(var(--a)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-a,oklch(var(--a)/var(--tw-text-opacity)));
+  color: var(--fallback-a,oklch(var(--a)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-a,oklch(var(--a)/0.5));
 }
 
@@ -2019,7 +2012,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-success {
   background-color: var(--fallback-su,oklch(var(--su)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-su,oklch(var(--su)/0.5));
 }
 
@@ -2035,7 +2028,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-info {
   background-color: var(--fallback-in,oklch(var(--in)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-in,oklch(var(--in)/var(--tw-text-opacity)));
+  color: var(--fallback-in,oklch(var(--in)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-in,oklch(var(--in)/0.5));
 }
 
@@ -2051,7 +2044,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-warning {
   background-color: var(--fallback-wa,oklch(var(--wa)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-wa,oklch(var(--wa)/var(--tw-text-opacity)));
+  color: var(--fallback-wa,oklch(var(--wa)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-wa,oklch(var(--wa)/0.5));
 }
 
@@ -2067,7 +2060,7 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn-soft.btn-error {
   background-color: var(--fallback-er,oklch(var(--er)/0.2));
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
   outline-color: var(--fallback-er,oklch(var(--er)/0.5));
 }
 
@@ -2082,12 +2075,12 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-outline.btn-primary {
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .btn-outline.btn-primary.btn-active {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
 }
 
@@ -2099,7 +2092,7 @@ select.is-invalid + .advance-select-toggle:focus,
   border-color: transparent;
   background-color: transparent;
   --tw-text-opacity: 1;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -2124,7 +2117,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-primary {
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-primary.btn-active {
@@ -2137,7 +2130,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-secondary {
   --tw-text-opacity: 1;
-  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-secondary.btn-active {
@@ -2150,7 +2143,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-accent {
   --tw-text-opacity: 1;
-  color: var(--fallback-a,oklch(var(--a)/var(--tw-text-opacity)));
+  color: var(--fallback-a,oklch(var(--a)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-accent.btn-active {
@@ -2163,7 +2156,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-success {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-success.btn-active {
@@ -2176,7 +2169,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-info {
   --tw-text-opacity: 1;
-  color: var(--fallback-in,oklch(var(--in)/var(--tw-text-opacity)));
+  color: var(--fallback-in,oklch(var(--in)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-info.btn-active {
@@ -2189,7 +2182,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-warning {
   --tw-text-opacity: 1;
-  color: var(--fallback-wa,oklch(var(--wa)/var(--tw-text-opacity)));
+  color: var(--fallback-wa,oklch(var(--wa)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-warning.btn-active {
@@ -2202,7 +2195,7 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-text.btn-error {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .btn-text.btn-error.btn-active {
@@ -2215,9 +2208,9 @@ select.is-invalid + .advance-select-toggle:focus,
 
 .btn-gradient.btn-primary {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   --tw-text-opacity: 1;
-  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity, 1)));
   --tw-shadow-color: var(--fallback-p,oklch(var(--p)/0.26));
   --tw-shadow: var(--tw-shadow-colored);
 }
@@ -2233,8 +2226,10 @@ select.is-invalid + .advance-select-toggle:focus,
 }
 
 .btn.btn-disabled,
+  .btn.disabled,
   .btn[disabled],
   .btn:disabled {
+  pointer-events: none;
   opacity: 0.5;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
@@ -2244,11 +2239,11 @@ select.is-invalid + .advance-select-toggle:focus,
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
   --tw-text-opacity: 1;
-  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity, 1)));
 }
 
 .btn:is(input[type="checkbox"]:checked):focus-visible, .btn:is(input[type="radio"]:checked):focus-visible {
@@ -2269,10 +2264,17 @@ select.is-invalid + .advance-select-toggle:focus,
   }
 }
 
+.carousel-body,
+.carousel-slide {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 700ms;
+}
+
 .carousel-prev:hover,
 .carousel-next:hover {
   --tw-text-opacity: 1;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
 }
 
 .carousel-prev.disabled,
@@ -2281,18 +2283,59 @@ select.is-invalid + .advance-select-toggle:focus,
   color: var(--fallback-bc,oklch(var(--bc)/0.3));
 }
 
+.checkbox:focus {
+  box-shadow: none;
+}
+
+.checkbox:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 0px;
+  outline-color: var(--fallback-n,oklch(var(--n)/0.3));
+}
+
+.checkbox:checked,
+  .checkbox[checked="true"],
+  .checkbox[aria-checked="true"] {
+  background-repeat: no-repeat;
+  --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-color: var(--chkbg);
+  animation: checkmark var(--animation-input, 0.2s) ease-out;
+  background-color: var(--chkbg);
+  background-image: linear-gradient(-45deg, transparent 66%, var(--chkbg) 66.99%),
+      linear-gradient(45deg, transparent 77%, var(--chkbg) 77.99%),
+      linear-gradient(-45deg, var(--chkbg) 41%, transparent 41.99%),
+      linear-gradient(45deg, var(--chkbg) 34%, var(--chkfg) 34.99%, var(--chkfg) 40%, transparent 40.99%),
+      linear-gradient(-45deg, var(--chkfg) 47%, var(--chkbg) 47.99%);
+}
+
+.checkbox:indeterminate {
+  background-repeat: no-repeat;
+  --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: var(--chkbg);
+  border-color: var(--chkbg);
+  animation: checkmark var(--animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(0deg, var(--chkbg) 45%, var(--chkfg) 45%, var(--chkfg) 55%, var(--chkbg) 55%);
+}
+
 .checkbox.disabled,
   .checkbox:disabled,
   .checkbox[disabled] {
   pointer-events: none;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   opacity: 0.4;
 }
 
 .checkbox.disabled:not(checked), .checkbox:disabled:not(checked), .checkbox[disabled]:not(checked) {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity, 1)));
 }
 
 @keyframes checkmark {
@@ -2314,7 +2357,7 @@ select.is-invalid + .advance-select-toggle:focus,
   --chkbg: var(--fallback-su,oklch(var(--su)/1));
   --chkfg: var(--fallback-suc,oklch(var(--suc)/1));
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
 }
 
 .checkbox.is-valid:focus-visible, .validate .checkbox:valid:focus-visible {
@@ -2326,50 +2369,56 @@ select.is-invalid + .advance-select-toggle:focus,
   --chkbg: var(--fallback-er,oklch(var(--er)/1));
   --chkfg: var(--fallback-erc,oklch(var(--erc)/1));
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
 }
 
 .checkbox.is-invalid:focus-visible, .validate .checkbox:invalid:focus-visible {
   outline-color: var(--fallback-er,oklch(var(--er)/0.3)) !important;
 }
 
-.validate .label:has(+ * > .checkbox:valid)>*,
+.validate .label:has(+ * .checkbox:valid) > *, 
+.validate .label-text:has(+ * .checkbox:valid), 
+.validate .label-text:has(~ .checkbox:valid), 
+.validate .label:has(~ .checkbox:valid) > *, 
 
-.validate .label~*:has(> .checkbox:valid)~.label .label-text-alt,
-
-.validate .label:has(~ .checkbox:valid)>*,
-.validate .label:has(~ .checkbox:valid) :where(.label-text),
-
-.validate .checkbox:valid~.label,
-.validate .checkbox:valid~.label .label-text {
+.validate .checkbox:valid ~ .label, 
+.validate .checkbox:valid ~ .label-text, 
+.validate .checkbox:valid ~ .label .label-text,  
+.validate *:has(.checkbox:valid) ~ .label, 
+.validate *:has(.checkbox:valid) ~ .label-text, 
+.validate *:has(.checkbox:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .checkbox:invalid)>*,
+.validate .label:has(+ * .checkbox:invalid) > *, 
+.validate .label-text:has(+ * .checkbox:invalid), 
+.validate .label-text:has(~ .checkbox:invalid), 
+.validate .label:has(~ .checkbox:invalid) > *, 
 
-.validate .label~*:has(> .checkbox:invalid)~.label .label-text-alt,
-
-.validate .label:has(~ .checkbox:invalid)>*,
-.validate .label:has(~ .checkbox:invalid) :where(.label-text),
-
-.validate .checkbox:invalid~.label,
-.validate .checkbox:invalid~.label .label-text {
+.validate .checkbox:invalid ~ .label, 
+.validate .checkbox:invalid ~ .label-text, 
+.validate .checkbox:invalid ~ .label .label-text,  
+.validate *:has(.checkbox:invalid) ~ .label, 
+.validate *:has(.checkbox:invalid) ~ .label-text, 
+.validate *:has(.checkbox:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .validate *:has(> .checkbox:valid) ~ .success-message,
-.validate .label ~ *:has(> .checkbox:valid) ~ * > .success-message,
-.validate .checkbox:valid ~ * > .success-message,
-.validate .checkbox:valid ~ .success-message {
+.validate *:has(> .checkbox:valid) > * > .success-message,
+
+.validate .checkbox:valid ~ .success-message,
+.validate .checkbox:valid + * > .success-message {
   display: block;
 }
 
 .validate *:has(> .checkbox:invalid) ~ .error-message,
-.validate .label ~ *:has(> .checkbox:invalid) ~ * > .error-message,
-.validate .checkbox:invalid ~ * > .error-message,
-.validate .checkbox:invalid ~ .error-message {
+.validate *:has(> .checkbox:invalid) > * > .error-message,
+
+.validate .checkbox:invalid ~ .error-message,
+.validate .checkbox:invalid + * > .error-message {
   display: block;
 }
 
@@ -2403,7 +2452,7 @@ select.is-invalid + .advance-select-toggle:focus,
   .dropdown-item:active {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .dropdown-item.disabled,
@@ -2451,14 +2500,14 @@ input:focus-visible {
   border-color: var(--fallback-bc,oklch(var(--bc)/0.6));
 }
 
-.input::file-selector-button:disabled {
+.input[type="file"]:disabled {
   background-color: var(--fallback-n,oklch(var(--n)/0.1));
 }
 
 .input:focus,
   .input:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -2468,13 +2517,13 @@ input:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity, 1)));
 }
 
 .input:-webkit-autofill,
   .input:-webkit-autofill:focus {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   color: var(--fallback-bc,oklch(var(--bc)/0.9));
 }
 
@@ -2501,7 +2550,7 @@ input:focus-visible {
     .input.input-floating[disabled] {
   border-width: 1px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .input.input-floating.disabled ~ .input-floating-label, .input.input-floating:disabled ~ .input-floating-label, .input.input-floating[disabled] ~ .input-floating-label {
@@ -2583,13 +2632,13 @@ input:focus-visible {
   border-inline-end-width: 1px;
   border-color: var(--fallback-bc,oklch(var(--bc)/0.25));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .input.is-valid,
 .validate .input:valid {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 .input.is-valid:focus,
@@ -2602,7 +2651,7 @@ input:focus-visible {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 .input.is-valid.input-filled:focus,
@@ -2610,7 +2659,7 @@ input:focus-visible {
   .validate .input:valid.input-filled:focus,
   .validate .input:valid.input-filled:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -2624,7 +2673,7 @@ input:focus-visible {
   .validate .input:valid ~ .input-floating-label,
   .validate .input:valid ~ .input-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .input.is-valid:focus ~ .input-filled-focused,
@@ -2635,39 +2684,50 @@ input:focus-visible {
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
 }
 
-.label:has(+ * > .is-valid) > *,
+.label:has(+ * .is-valid) > *, 
+.label-text:has(+ * .is-valid), 
+.label-text:has(~ .is-valid), 
+.label:has(~ .is-valid) > *, 
 
-.label ~ *:has(> .is-valid) ~ .label .label-text-alt,
 
-.label:has(~ .is-valid) > *,
+.is-valid ~ .label, 
+.is-valid ~ .label-text, 
+.is-valid ~ .label .label-text,  
+*:has(.is-valid) ~ .label, 
+*:has(.is-valid) ~ .label-text, 
+*:has(.is-valid) ~ .label .label-text, 
 
-.is-valid ~ .label,
-.is-valid ~ .label .label-text,
 
-.validate .label:has(+ * > .input:valid) > *,
-.validate .label:has(+ * > .input:valid),
-.validate .label ~ *:has(> .input:valid) ~ .label .label-text-alt,
-.validate .label:has(~ .input:valid) > *,
-.validate .label:has(~ .input:valid),
-.validate .input:valid ~  .label,
-.validate .input:valid ~  .label .label-text {
+
+.validate .label:has(+ * .input:valid) > *, 
+.validate .label-text:has(+ * .input:valid), 
+.validate .label-text:has(~ .input:valid), 
+.validate .label:has(~ .input:valid) > *, 
+
+
+.validate .input:valid ~ .label, 
+.validate .input:valid ~ .label.label-text, 
+.validate .input:valid ~ .label .label-text,  
+.validate *:has(.input:valid) ~ .label, 
+.validate *:has(.input:valid) ~ .label-text, 
+.validate *:has(.input:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .input:focus.is-valid ~ .input-floating-label,
 .input:focus.is-valid ~ .input-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .input.is-invalid,
 .validate .input:invalid {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 .input.is-invalid:focus,
@@ -2680,7 +2740,7 @@ input:focus-visible {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity, 1)));
 }
 
 .input.is-invalid.input-filled:focus,
@@ -2688,7 +2748,7 @@ input:focus-visible {
   .validate .input:invalid.input-filled:focus,
   .validate .input:invalid.input-filled:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -2702,7 +2762,7 @@ input:focus-visible {
   .validate .input:invalid ~ .input-floating-label,
   .validate .input:invalid ~ .input-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .input.is-invalid:focus ~ .input-filled-focused,
@@ -2713,47 +2773,59 @@ input:focus-visible {
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1)));
 }
 
-.label:has(+ * > .is-invalid) > *,
+.label:has(+ * .is-invalid) > *, 
+.label-text:has(+ * .is-invalid), 
+.label-text:has(~ .is-invalid), 
+.label:has(~ .is-invalid) > *, 
 
-.label ~ *:has(> .is-invalid) ~ .label .label-text-alt,
 
-.label:has(~ .is-invalid) > *,
+.is-invalid ~ .label, 
+.is-invalid ~ .label-text, 
+.is-invalid ~ .label .label-text,  
+*:has(.is-invalid) ~ .label, 
+*:has(.is-invalid) ~ .label-text, 
+*:has(.is-invalid) ~ .label .label-text, 
 
-.is-invalid ~ .label,
-.is-invalid ~ .label .label-text,
 
-.validate .label:has(+ * > .input:invalid) > *,
-.validate .label:has(+ * > .input:invalid),
-.validate .label ~ *:has(> .input:invalid) ~ .label .label-text-alt,
-.validate .label:has(~ .input:invalid) > *,
-.validate .input:invalid ~ .label,
-.validate .input:invalid ~ .label .label-text {
+
+.validate .label:has(+ * .input:invalid) > *, 
+.validate .label-text:has(+ * .input:invalid), 
+.validate .label-text:has(~ .input:invalid), 
+.validate .label:has(~ .input:invalid) > *, 
+
+
+.validate .input:invalid ~ .label, 
+.validate .input:invalid ~ .label.label-text, 
+.validate .input:invalid ~ .label .label-text,  
+.validate *:has(.input:invalid) ~ .label, 
+.validate *:has(.input:invalid) ~ .label-text, 
+.validate *:has(.input:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .input:focus.is-invalid ~ .input-floating-label,
 .input:focus.is-invalid ~ .input-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
-*:has(> .is-valid) ~ .success-message,
 .validate *:has(> .input:valid) ~ .success-message,
+.validate *:has(> .input:valid)  > * > .success-message,
 
-.is-valid ~ .success-message,
-.validate .input:valid ~ .success-message {
+.validate .input:valid ~ .success-message,
+.validate .input:valid  + * > .success-message {
   display: block;
 }
 
-*:has(> .is-invalid) ~ .error-message,
 .validate *:has(> .input:invalid) ~ .error-message,
+.validate *:has(> .input:invalid) > * > .error-message,
 
-.is-invalid ~ .error-message,
-.validate .input:invalid ~ .error-message {
+.validate .input:invalid ~ .error-message,
+.validate .input:invalid + * > .error-message {
   display: block;
 }
 
@@ -2809,7 +2881,7 @@ input:focus-visible {
 .input-group:has(.is-valid),
   .validate .input-group:has(.input:valid) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 .input-group:has(.is-valid):has(:focus),
@@ -2817,7 +2889,7 @@ input:focus-visible {
     .validate .input-group:has(.input:valid):has(:focus),
     .validate .input-group:has(.input:valid):has(:focus-within) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -2827,13 +2899,13 @@ input:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 .input-group:has(.is-invalid),
   .validate .input-group:has(.input:invalid) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 .input-group:has(.is-invalid):has(:focus),
@@ -2841,7 +2913,7 @@ input:focus-visible {
     .validate .input-group:has(.input:invalid):has(:focus),
     .validate .input-group:has(.input:invalid):has(:focus-within) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -2851,13 +2923,13 @@ input:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity, 1)));
 }
 
 .input-group-filled:has(.is-valid),
   .validate .input-group-filled:has(.input:valid) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 .input-group-filled:has(.is-valid):focus ~ .input-filled-focused,
@@ -2868,13 +2940,13 @@ input:focus-visible {
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
 }
 
 .input-group-filled:has(.is-invalid),
   .validate .input-group-filled:has(.input:invalid) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 .input-group-filled:has(.is-invalid):focus ~ .input-filled-focused,
@@ -2885,7 +2957,7 @@ input:focus-visible {
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1)));
 }
 
 .join .btn {
@@ -2944,7 +3016,7 @@ input:focus-visible {
 
 :where(.menu li:empty) {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity, 1)));
   opacity: 0.1;
   margin: 0.5rem 1rem;
   height: 1px;
@@ -2962,7 +3034,7 @@ input:focus-visible {
   top: 0.75rem;
   width: 1px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity, 1)));
   opacity: 0.1;
   content: "";
 }
@@ -3004,11 +3076,11 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-.menu li:not(.disabled, :disabled, [disabled]) > *:not(ul, .menu-title, .collapse, .btn):active,
-.menu li:not(.disabled, :disabled, [disabled]) > *:not(ul, .menu-title, .collapse, .btn).active {
+.menu li:not(.disabled, :disabled, [disabled]) > :not(ul, .menu-title, .collapse, .btn):active,
+.menu li:not(.disabled, :disabled, [disabled]) > :not(ul, .menu-title, .collapse, .btn).active {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .menu li.disabled,
@@ -3102,7 +3174,7 @@ input:focus-visible {
 .pin-input:focus,
   .pin-input:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 4px 6px -1px var(--fallback-bs,oklch(var(--bs)/0.2));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color);
@@ -3112,7 +3184,7 @@ input:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity, 1)));
 }
 
 .pin-input.disabled,
@@ -3138,9 +3210,9 @@ input:focus-visible {
 
 .progress-primary {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
   --tw-text-opacity: 1;
-  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity)));
+  color: var(--fallback-pc,oklch(var(--pc)/var(--tw-text-opacity, 1)));
   --progress-color: var(--fallback-p,oklch(var(--p)/1));
 }
 
@@ -3229,7 +3301,7 @@ input:focus-visible {
   .validate .custom-option:has(.radio:invalid),
   .custom-option:has(.radio.is-invalid) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 .validate .custom-label-option:has(.radio:valid),
@@ -3237,14 +3309,14 @@ input:focus-visible {
   .validate .custom-option:has(.radio:valid),
   .custom-option:has(.radio.is-valid) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 .validate .custom-option:has(.radio:valid):has(:checked), .custom-option:has(.radio.is-valid):has(:checked) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 .validate .custom-label-option:has(.radio:valid),
@@ -3254,10 +3326,10 @@ input:focus-visible {
 
 .validate .custom-label-option:has(.radio:valid):has(:checked), .custom-label-option:has(.radio.is-valid):has(:checked) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   background-color: var(--fallback-su,oklch(var(--su)/0.2));
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 .validate .custom-label-option:has(.radio:invalid),
@@ -3268,7 +3340,7 @@ input:focus-visible {
 .radio.is-valid,
 .validate .radio:valid {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
 }
 
 .radio.is-valid:hover,
@@ -3285,15 +3357,15 @@ input:focus-visible {
   .validate .radio:valid:checked,
   .validate .radio:valid[aria-checked="true"] {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
   --tw-bg-opacity: 1 !important;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity))) !important;
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1))) !important;
 }
 
 .radio.is-invalid,
 .validate .radio:invalid {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
 }
 
 .radio.is-invalid:hover,
@@ -3310,55 +3382,45 @@ input:focus-visible {
   .validate .radio:invalid:checked,
   .validate .radio:invalid[aria-checked="true"] {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
   --tw-bg-opacity: 1 !important;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity))) !important;
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1))) !important;
 }
 
-.validate .label:has(+ * > .radio:valid) > *,
+.validate .label:has(+ * .radio:valid) > *, 
+.validate .label-text:has(+ * .radio:valid), 
+.validate .label-text:has(~ .radio:valid), 
+.validate .label:has(~ .radio:valid) > *, 
 
-.validate .label ~ *:has(> .radio:valid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .radio:valid) > *,
-.validate .label:has(~ .radio:valid) :where(.label-text),
-
-.validate .radio:valid ~  .label,
-.validate .radio:valid ~  .label .label-text {
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity))) !important;
+.validate .radio:valid ~ .label, 
+.validate .radio:valid ~ .label-text, 
+.validate .radio:valid ~ .label .label-text,  
+.validate *:has(.radio:valid) ~ .label, 
+.validate *:has(.radio:valid) ~ .label-text, 
+.validate *:has(.radio:valid) ~ .label .label-text {
+  --tw-text-opacity: 1;
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .radio:invalid) > *,
+.validate .label:has(+ * .radio:invalid) > *, 
+.validate .label-text:has(+ * .radio:invalid), 
+.validate .label-text:has(~ .radio:invalid), 
+.validate .label:has(~ .radio:invalid) > *, 
 
-.validate .label ~ *:has(> .radio:invalid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .radio:invalid) > *,
-.validate .label:has(~ .radio:invalid) :where(.label-text),
-
-.validate .radio:invalid ~ .label,
-.validate .radio:invalid ~ .label .label-text {
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity))) !important;
-}
-
-.validate *:has(> .radio:valid) ~ .success-message,
-.validate .label ~ *:has(> .radio:valid) ~ * > .success-message,
-.validate .radio:valid ~ * > .success-message,
-.validate .radio:valid ~ .success-message {
-  display: block !important;
-}
-
-.validate *:has(> .radio:invalid) ~ .error-message,
-.validate .label ~ *:has(> .radio:invalid) ~ * > .error-message,
-.validate .radio:invalid ~ * > .error-message,
-.validate .radio:invalid ~ .error-message {
-  display: block !important;
+.validate .radio:invalid ~ .label, 
+.validate .radio:invalid ~ .label-text, 
+.validate .radio:invalid ~ .label .label-text,  
+.validate *:has(.radio:invalid) ~ .label, 
+.validate *:has(.radio:invalid) ~ .label-text, 
+.validate *:has(.radio:invalid) ~ .label .label-text {
+  --tw-text-opacity: 1;
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .radio-inset.is-valid,
 .validate .radio-inset:valid {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
 }
 
 .radio-inset.is-valid:hover,
@@ -3375,13 +3437,13 @@ input:focus-visible {
   .validate .radio-inset:valid:checked,
   .validate .radio-inset:valid[aria-checked="true"] {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1))) !important;
 }
 
 .radio-inset.is-invalid,
 .validate .radio-inset:invalid {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
 }
 
 .radio-inset.is-invalid:hover,
@@ -3398,52 +3460,42 @@ input:focus-visible {
   .validate .radio-inset:invalid:checked,
   .validate .radio-inset:invalid[aria-checked="true"] {
   --tw-border-opacity: 1 !important;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity))) !important;
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1))) !important;
 }
 
-.validate .label:has(+ * > .radio-inset:valid) > *,
+.validate .label:has(+ * .radio-inset:valid) > *, 
+.validate .label:has(+ * .radio-inset:valid).label-text, 
+.validate .label:has(~ .radio-inset:valid).label-text, 
+.validate .label:has(~ .radio-inset:valid) > *, 
 
-.validate .label ~ *:has(> .radio-inset:valid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .radio-inset:valid) > *,
-.validate .label:has(~ .radio-inset:valid) :where(.label-text),
-
-.validate .radio-inset:valid ~  .label,
-.validate .radio-inset:valid ~  .label .label-text {
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity))) !important;
+.validate .radio-inset:valid ~ .label, 
+.validate .radio-inset:valid ~ .label.label-text, 
+.validate .radio-inset:valid ~ .label .label-text,  
+.validate *:has(.radio-inset:valid) ~ .label, 
+.validate *:has(.radio-inset:valid) ~ .label.label-text, 
+.validate *:has(.radio-inset:valid) ~ .label .label-text {
+  --tw-text-opacity: 1;
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .radio-inset:invalid) > *,
+.validate .label:has(+ * .radio-inset:invalid) > *, 
+.validate .label-text:has(+ * .radio-inset:invalid), 
+.validate .label-text:has(~ .radio-inset:invalid), 
+.validate .label:has(~ .radio-inset:invalid) > *, 
 
-.validate .label ~ *:has(> .radio-inset:invalid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .radio-inset:invalid) > *,
-.validate .label:has(~ .radio-inset:invalid) :where(.label-text),
-
-.validate .radio-inset:invalid ~ .label,
-.validate .radio-inset:invalid ~ .label .label-text {
-  --tw-text-opacity: 1 !important;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity))) !important;
-}
-
-.validate *:has(> .radio-inset:valid) ~ .success-message,
-.validate .label ~ *:has(> .radio-inset:valid) ~ * > .success-message,
-.validate .radio-inset:valid ~ * > .success-message,
-.validate .radio-inset:valid ~ .success-message {
-  display: block !important;
-}
-
-.validate *:has(> .radio-inset:invalid) ~ .error-message,
-.validate .label ~ *:has(> .radio-inset:invalid) ~ * > .error-message,
-.validate .radio-inset:invalid ~ * > .error-message,
-.validate .radio-inset:invalid ~ .error-message {
-  display: block !important;
+.validate .radio-inset:invalid ~ .label, 
+.validate .radio-inset:invalid ~ .label-text, 
+.validate .radio-inset:invalid ~ .label .label-text,  
+.validate *:has(.radio-inset:invalid) ~ .label, 
+.validate *:has(.radio-inset:invalid) ~ .label-text, 
+.validate *:has(.radio-inset:invalid) ~ .label .label-text {
+  --tw-text-opacity: 1;
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .range.disabled,
-  .range:disabled,
-  .range[disabled] {
+.range:disabled,
+.range[disabled] {
   pointer-events: none;
   opacity: 0.3;
 }
@@ -3455,7 +3507,7 @@ input:focus-visible {
 .select:focus,
   .select:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -3465,7 +3517,7 @@ input:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity, 1)));
 }
 
 .select:focus ~ .select-floating-label,
@@ -3473,7 +3525,7 @@ input:focus-visible {
     .select:focus-within ~ .select-floating-label,
     .select:focus-within ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .select:focus.is-valid ~ .select-floating-label,
@@ -3481,7 +3533,7 @@ input:focus-visible {
     .select:focus-within.is-valid ~ .select-floating-label,
     .select:focus-within.is-valid ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .select:focus.is-invalid ~ .select-floating-label,
@@ -3489,7 +3541,7 @@ input:focus-visible {
     .select:focus-within.is-invalid ~ .select-floating-label,
     .select:focus-within.is-invalid ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .select:focus-visible {
@@ -3542,7 +3594,7 @@ input:focus-visible {
   .select[size].select:not([size="1"])::-webkit-scrollbar-track {
   border-radius: 9999px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
 }
 
 .select-multiple::-webkit-scrollbar,
@@ -3556,10 +3608,10 @@ input:focus-visible {
     .select.select-floating[disabled] {
   border-width: 1px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
-.select.select-floating ~ .select-floating-label {
+.select.select-floating.disabled ~ .select-floating-label, .select.select-floating:disabled ~ .select-floating-label, .select.select-floating[disabled] ~ .select-floating-label {
   color: var(--fallback-bc,oklch(var(--bc)/0.5));
 }
 
@@ -3569,7 +3621,7 @@ input:focus-visible {
   border-bottom-width: 1px;
 }
 
-.select.select-filled ~ .select-filled-label {
+.select.select-filled.disabled ~ .select-filled-label, .select.select-filled:disabled ~ .select-filled-label, .select.select-filled[disabled] ~ .select-filled-label {
   color: var(--fallback-bc,oklch(var(--bc)/0.5));
 }
 
@@ -3604,7 +3656,7 @@ input:focus-visible {
 .select.is-valid,
 .validate .select:valid {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 .select.is-valid:focus,
@@ -3617,7 +3669,7 @@ input:focus-visible {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 .select.is-valid.select-filled:focus,
@@ -3625,7 +3677,7 @@ input:focus-visible {
   .validate .select:valid.select-filled:focus,
   .validate .select:valid.select-filled:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -3639,7 +3691,7 @@ input:focus-visible {
   .validate .select:valid ~ .select-floating-label,
   .validate .select:valid ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .select.is-valid:focus ~ .select-filled-focused,
@@ -3650,7 +3702,7 @@ input:focus-visible {
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
 }
 
 .select:focus.is-valid ~ .select-floating-label,
@@ -3658,7 +3710,7 @@ input:focus-visible {
 .select:focus.is-valid ~ .select-filled-label,
 .validate .select:focus:is-valid ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .select:focus.is-invalid ~ .select-floating-label,
@@ -3666,13 +3718,13 @@ input:focus-visible {
 .select:focus.is-invalid ~ .select-filled-label,
 .validate .select:focus:is-invalid ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .select.is-invalid,
 .validate .select:invalid {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 .select.is-invalid:focus,
@@ -3685,7 +3737,7 @@ input:focus-visible {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity, 1)));
 }
 
 .select.is-invalid.select-filled:focus,
@@ -3693,7 +3745,7 @@ input:focus-visible {
   .validate .select:invalid.select-filled:focus,
   .validate .select:invalid.select-filled:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -3707,7 +3759,7 @@ input:focus-visible {
   .validate .select:invalid ~ .select-floating-label,
   .validate .select:invalid ~ .select-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .select.is-invalid:focus ~ .select-filled-focused,
@@ -3718,44 +3770,52 @@ input:focus-visible {
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1)));
 }
 
-.validate .label:has(+ * > .select:valid) > *,
-.validate .label:has(+ * > .select:valid),
+.validate .label:has(+ * .select:valid) > *, 
+.validate .label-text:has(+ * .select:valid), 
+.validate .label-text:has(~ .select:valid).label-text, 
+.validate .label:has(~ .select:valid) > *, 
 
-.validate .label ~ *:has(> .select:valid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .select:valid) > *,
-.validate .label:has(~ .select:valid),
-.validate .label:has(~ .select:valid) :where(.label-text),
-
-.validate .select:valid ~  .label {
+.validate .select:valid ~ .label, 
+.validate .select:valid ~ .label-text, 
+.validate .select:valid ~ .label .label-text,  
+.validate *:has(.select:valid) ~ .label, 
+.validate *:has(.select:valid) ~ .label-text, 
+.validate *:has(.select:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .select:invalid) > *,
-.validate .label:has(+ * > .select:invalid),
+.validate .label:has(+ * .select:invalid) > *, 
+.validate .label-text:has(+ * .select:invalid), 
+.validate .label-text:has(~ .select:invalid), 
+.validate .label:has(~ .select:invalid) > *, 
 
-.validate .label ~ *:has(> .select:invalid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .select:invalid) > *,
-.validate .label:has(~ .select:invalid),
-.validate .label:has(~ .select:invalid) :where(.label-text),
-
-.validate .select:invalid ~ .label {
+.validate .select:invalid ~ .label, 
+.validate .select:invalid ~ .label-text, 
+.validate .select:invalid ~ .label .label-text,  
+.validate *:has(.select:invalid) ~ .label, 
+.validate *:has(.select:invalid) ~ .label-text, 
+.validate *:has(.select:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .validate *:has(> .select:valid) ~ .success-message,
-.validate .select:valid ~ .success-message {
+.validate *:has(> .select:valid) > * > .success-message,
+
+.validate .select:valid ~ .success-message,
+.validate .select:valid + * > .success-message {
   display: block;
 }
 
 .validate *:has(> .select:invalid) ~ .error-message,
-.validate .select:invalid ~ .error-message {
+.validate *:has(> .select:invalid) > * > .error-message,
+
+.validate .select:invalid ~ .error-message,
+.validate .select:invalid + * > .error-message {
   display: block;
 }
 
@@ -3786,7 +3846,7 @@ input:focus-visible {
   background-image: none;
   --handleoffsetcalculator: var(--handleoffset);
   --tw-text-opacity: 1;
-  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity)));
+  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity, 1)));
 }
 
 [dir="rtl"] .switch:checked, [dir="rtl"] .switch[checked="true"], [dir="rtl"] .switch[aria-checked="true"] {
@@ -3795,7 +3855,7 @@ input:focus-visible {
 
 .switch:indeterminate {
   --tw-text-opacity: 1;
-  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity)));
+  color: var(--fallback-n,oklch(var(--n)/var(--tw-text-opacity, 1)));
   box-shadow: calc(var(--handleoffset) / 2) 0 0 3px var(--tglbg) inset,
       calc(var(--handleoffset) / -2) 0 0 3px var(--tglbg) inset,
       0 0 0 3px var(--tglbg) inset;
@@ -3862,43 +3922,50 @@ input:focus-visible {
   --tglbg: var(--fallback-er,oklch(var(--er)/1));
 }
 
-.validate .label:has(+ * > .switch:valid)>*,
+.validate .label:has(+ * .switch:valid) > *, 
+.validate .label-text:has(+ * .switch:valid), 
+.validate .label-text:has(~ .switch:valid), 
+.validate .label:has(~ .switch:valid) > *, 
 
-.validate .label~*:has(> .switch:valid)~.label .label-text-alt,
 
-.validate .label:has(~ .switch:valid)>*,
-.validate .label:has(~ .switch:valid) :where(.label-text),
-
-.validate .switch:valid~.label,
-.validate .switch:valid~.label .label-text {
+.validate .switch:valid ~ .label, 
+.validate .switch:valid ~ .label-text, 
+.validate .switch:valid ~ .label .label-text,  
+.validate *:has(.switch:valid) ~ .label, 
+.validate *:has(.switch:valid) ~ .label-text, 
+.validate *:has(.switch:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .switch:invalid)>*,
+.validate .label:has(+ * .switch:invalid) > *, 
+.validate .label-text:has(+ * .switch:invalid), 
+.validate .label-text:has(~ .switch:invalid), 
+.validate .label:has(~ .switch:invalid) > *, 
 
-.validate .label~*:has(> .switch:invalid)~.label .label-text-alt,
-
-.validate .label:has(~ .switch:invalid)>*,
-.validate .label:has(~ .switch:invalid) :where(.label-text),
-
-.validate .switch:invalid~.label,
-.validate .switch:invalid~.label .label-text {
+.validate .switch:invalid ~ .label, 
+.validate .switch:invalid ~ .label-text, 
+.validate .switch:invalid ~ .label .label-text,  
+.validate *:has(.switch:invalid) ~ .label, 
+.validate *:has(.switch:invalid) ~ .label-text, 
+.validate *:has(.switch:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .validate *:has(> .switch:valid) ~ .success-message,
-.validate .label ~ *:has(> .switch:valid) ~ * > .success-message,
-.validate .switch:valid ~ * > .success-message,
-.validate .switch:valid ~ .success-message {
+.validate *:has(> .switch:valid) > * > .success-message,
+
+.validate .switch:valid ~ .success-message,
+.validate .switch:valid + * > .success-message {
   display: block;
 }
 
 .validate *:has(> .switch:invalid) ~ .error-message,
-.validate .label ~ *:has(> .switch:invalid) ~ * > .error-message,
-.validate .switch:invalid ~ * > .error-message,
-.validate .switch:invalid ~ .error-message {
+.validate *:has(> .switch:invalid) > * > .error-message,
+
+.validate .switch:invalid ~ .error-message,
+.validate .switch:invalid + * > .error-message {
   display: block;
 }
 
@@ -3906,9 +3973,9 @@ input:focus-visible {
 .validate .switch-outline:valid {
   --tglbg: var(--fallback-b1,oklch(var(--b1)/1));
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
 }
 
 .switch-outline.is-valid:checked,
@@ -3919,18 +3986,18 @@ input:focus-visible {
   .validate .switch-outline:valid[aria-checked="true"] {
   --tglbg: var(--fallback-b1,oklch(var(--b1)/1));
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
 }
 
 .switch-outline.is-invalid,
 .validate .switch-outline:invalid {
   --tglbg: var(--fallback-b1,oklch(var(--b1)/1));
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1)));
 }
 
 .switch-outline.is-invalid:checked,
@@ -3941,49 +4008,40 @@ input:focus-visible {
   .validate .switch-outline:invalid[aria-checked="true"] {
   --tglbg: var(--fallback-b1,oklch(var(--b1)/1));
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1)));
 }
 
-.validate .label:has(+ * > .switch-outline:valid)>*,
+.validate .label:has(+ * .switch-outline:valid) > *, 
+.validate .label-text:has(+ * .switch-outline:valid), 
+.validate .label-text:has(~ .switch-outline:valid), 
+.validate .label:has(~ .switch-outline:valid) > *, 
 
-.validate .label~*:has(> .switch-outline:valid)~.label .label-text-alt,
 
-.validate .label:has(~ .switch-outline:valid)>*,
-.validate .label:has(~ .switch-outline:valid) :where(.label-text),
-
-.validate .switch-outline:valid~.label,
-.validate .switch-outline:valid~.label .label-text {
+.validate .switch-outline:valid ~ .label, 
+.validate .switch-outline:valid ~ .label-text, 
+.validate .switch-outline:valid ~ .label .label-text,  
+.validate *:has(.switch-outline:valid) ~ .label, 
+.validate *:has(.switch-outline:valid) ~ .label-text, 
+.validate *:has(.switch-outline:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .switch-outline:invalid)>*,
+.validate .label:has(+ * .switch-outline:invalid) > *, 
+.validate .label-text:has(+ * .switch-outline:invalid), 
+.validate .label-text:has(~ .switch-outline:invalid), 
+.validate .label:has(~ .switch-outline:invalid) > *, 
 
-.validate .label~*:has(> .switch-outline:invalid)~.label .label-text-alt,
-
-.validate .label:has(~ .switch-outline:invalid)>*,
-.validate .label:has(~ .switch-outline:invalid) :where(.label-text),
-
-.validate .switch-outline:invalid~.label,
-.validate .switch-outline:invalid~.label .label-text {
+.validate .switch-outline:invalid ~ .label, 
+.validate .switch-outline:invalid ~ .label-text, 
+.validate .switch-outline:invalid ~ .label .label-text,  
+.validate *:has(.switch-outline:invalid) ~ .label, 
+.validate *:has(.switch-outline:invalid) ~ .label-text, 
+.validate *:has(.switch-outline:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
-}
-
-.validate *:has(> .switch-outline:valid) ~ .success-message,
-.validate .label ~ *:has(> .switch-outline:valid) ~ * > .success-message,
-.validate .switch-outline:valid ~ * > .success-message,
-.validate .switch-outline:valid ~ .success-message {
-  display: block;
-}
-
-.validate *:has(> .switch-outline:invalid) ~ .error-message,
-.validate .label ~ *:has(> .switch-outline:invalid) ~ * > .error-message,
-.validate .switch-outline:invalid ~ * > .error-message,
-.validate .switch-outline:invalid ~ .error-message {
-  display: block;
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .tabs-lifted > .tab:focus-visible {
@@ -3993,8 +4051,8 @@ input:focus-visible {
 
 .tab.tab-active:not([disabled]) {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   --tw-text-opacity: 1;
 }
 
@@ -4006,9 +4064,9 @@ input:focus-visible {
 
 .tab[disabled] {
   pointer-events: none;
-  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity, 1)));
   --tw-border-opacity: 0.3;
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity)));
+  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-text-opacity, 1)));
   --tw-text-opacity: 0.4;
 }
 
@@ -4104,7 +4162,7 @@ input:focus-visible {
 
 .table::-webkit-scrollbar-track {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity, 1)));
 }
 
 .table::-webkit-scrollbar {
@@ -4197,7 +4255,7 @@ textarea:focus-visible {
 .textarea:focus,
   s .textarea:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow: var(--tw-shadow-colored);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -4207,7 +4265,7 @@ textarea:focus-visible {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity, 1)));
 }
 
 .textarea.disabled,
@@ -4225,7 +4283,7 @@ textarea:focus-visible {
     .textarea.textarea-floating[disabled] {
   border-width: 1px;
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
 }
 
 .textarea.textarea-floating.disabled ~ .textarea-floating-label, .textarea.textarea-floating:disabled ~ .textarea-floating-label, .textarea.textarea-floating[disabled] ~ .textarea-floating-label {
@@ -4259,7 +4317,7 @@ textarea:focus-visible {
 .textarea.is-valid,
 .validate .textarea:valid {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
 }
 
 .textarea.is-valid:focus,
@@ -4272,7 +4330,7 @@ textarea:focus-visible {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-su,oklch(var(--su)/var(--tw-ring-opacity, 1)));
 }
 
 .textarea.is-valid.textarea-filled:focus,
@@ -4280,7 +4338,7 @@ textarea:focus-visible {
   .validate .textarea:valid.textarea-filled:focus,
   .validate .textarea:valid.textarea-filled:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity)));
+  border-color: var(--fallback-su,oklch(var(--su)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -4294,7 +4352,7 @@ textarea:focus-visible {
   .validate .textarea:valid ~ .textarea-floating-label,
   .validate .textarea:valid ~ .textarea-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .textarea.is-valid:focus ~ .textarea-filled-focused,
@@ -4302,7 +4360,7 @@ textarea:focus-visible {
   .validate .textarea:valid:focus ~ .textarea-filled-focused,
   .validate .textarea:valid:focus-within ~ .textarea-filled-focused {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
 }
 
 .textarea:focus.is-valid ~ .textarea-floating-label,
@@ -4310,7 +4368,7 @@ textarea:focus-visible {
 .textarea:focus.is-valid ~ .textarea-filled-label,
 .validate .textarea:focus:is-valid ~ .textarea-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .textarea:focus.is-invalid ~ .textarea-floating-label,
@@ -4318,13 +4376,13 @@ textarea:focus-visible {
 .textarea:focus.is-invalid ~ .textarea-filled-label,
 .validate .textarea:focus:is-invalid ~ .textarea-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .textarea.is-invalid,
 .validate .textarea:invalid {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
 }
 
 .textarea.is-invalid:focus,
@@ -4337,7 +4395,7 @@ textarea:focus-visible {
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity)));
+  --tw-ring-color: var(--fallback-er,oklch(var(--er)/var(--tw-ring-opacity, 1)));
 }
 
 .textarea.is-invalid.textarea-filled:focus,
@@ -4345,7 +4403,7 @@ textarea:focus-visible {
   .validate .textarea:invalid.textarea-filled:focus,
   .validate .textarea:invalid.textarea-filled:focus-within {
   --tw-border-opacity: 1;
-  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity)));
+  border-color: var(--fallback-er,oklch(var(--er)/var(--tw-border-opacity, 1)));
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -4359,7 +4417,7 @@ textarea:focus-visible {
   .validate .textarea:invalid ~ .textarea-floating-label,
   .validate .textarea:invalid ~ .textarea-filled-label {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .textarea.is-invalid:focus ~ .textarea-filled-focused,
@@ -4367,48 +4425,52 @@ textarea:focus-visible {
   .validate .textarea:invalid:focus ~ .textarea-filled-focused,
   .validate .textarea:invalid:focus-within ~ .textarea-filled-focused {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-er,oklch(var(--er)/var(--tw-bg-opacity, 1)));
 }
 
-.validate .label:has(+ * > .textarea:valid) > *,
-.validate .label:has(+ * > .textarea:valid),
+.validate .label:has(+ * .textarea:valid) > *, 
+.validate .label-text:has(+ * .textarea:valid), 
+.validate .label-text:has(~ .textarea:valid), 
+.validate .label:has(~ .textarea:valid) > *, 
 
-.validate .label ~ *:has(> .textarea:valid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .textarea:valid) > *,
-.validate .label:has(~ .textarea:valid),
-.validate .label:has(~ .textarea:valid) :where(.label-text),
-
-.validate .textarea:valid ~  .label {
+.validate .textarea:valid ~ .label, 
+.validate .textarea:valid ~ .label-text, 
+.validate .textarea:valid ~ .label .label-text,  
+.validate *:has(.textarea:valid) ~ .label, 
+.validate *:has(.textarea:valid) ~ .label-text, 
+.validate *:has(.textarea:valid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity)));
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
-.validate .label:has(+ * > .textarea:invalid) > *,
-.validate .label:has(+ * > .textarea:invalid),
+.validate .label:has(+ * .textarea:invalid) > *, 
+.validate .label-text:has(+ * .textarea:invalid), 
+.validate .label-text:has(~ .textarea:invalid), 
+.validate .label:has(~ .textarea:invalid) > *, 
 
-.validate .label ~ *:has(> .textarea:invalid) ~ .label .label-text-alt,
-
-.validate .label:has(~ .textarea:invalid) > *,
-.validate .label:has(~ .textarea:invalid),
-.validate .label:has(~ .textarea:invalid) :where(.label-text),
-
-.validate .textarea:invalid ~ .label {
+.validate .textarea:invalid ~ .label, 
+.validate .textarea:invalid ~ .label-text, 
+.validate .textarea:invalid ~ .label .label-text,  
+.validate *:has(.textarea:invalid) ~ .label, 
+.validate *:has(.textarea:invalid) ~ .label-text, 
+.validate *:has(.textarea:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
-  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity)));
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
-.validate *:has(> .textarea:valid) ~ * > .success-message,
 .validate *:has(> .textarea:valid) ~ .success-message,
-.validate .textarea:valid ~ * > .success-message,
-.validate .textarea:valid ~ .success-message {
+.validate *:has(> .textarea:valid) > * > .success-message,
+
+.validate .textarea:valid ~ .success-message,
+.validate .textarea:valid + * > .success-message {
   display: block;
 }
 
-.validate *:has(> .textarea:invalid) ~ * > .error-message,
 .validate *:has(> .textarea:invalid) ~ .error-message,
-.validate .textarea:invalid ~ * > .error-message,
-.validate .textarea:invalid ~ .error-message {
+.validate *:has(> .textarea:invalid) > * > .error-message,
+
+.validate .textarea:invalid ~ .error-message,
+.validate .textarea:invalid + * > .error-message {
   display: block;
 }
 
@@ -4554,7 +4616,7 @@ textarea:focus-visible {
 :where(.menu-horizontal > li:not(.menu-title) > .collapse > ul) {
   border-radius: var(--rounded-box, 0.5rem);
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
   --tw-shadow: 0 2px 4px 0 var(--fallback-bs,oklch(var(--bs)/0.26));
   --tw-shadow-colored: 0 2px 4px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -4585,6 +4647,10 @@ textarea:focus-visible {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .collapse {
@@ -4669,6 +4735,10 @@ textarea:focus-visible {
   right: 100px;
 }
 
+.start-0 {
+  inset-inline-start: 0px;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -4683,10 +4753,6 @@ textarea:focus-visible {
 
 .top-full {
   top: 100%;
-}
-
-.start-0 {
-  inset-inline-start: 0px;
 }
 
 .isolate {
@@ -4737,6 +4803,22 @@ textarea:focus-visible {
   margin-right: auto;
 }
 
+.\!me-1 {
+  margin-inline-end: 0.25rem !important;
+}
+
+.\!me-1\.5 {
+  margin-inline-end: 0.375rem !important;
+}
+
+.\!ms-auto {
+  margin-inline-start: auto !important;
+}
+
+.-mt-\[90px\] {
+  margin-top: -90px;
+}
+
 .mb-0\.5 {
   margin-bottom: 0.125rem;
 }
@@ -4749,16 +4831,16 @@ textarea:focus-visible {
   margin-bottom: 3rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .mb-3 {
   margin-bottom: 0.75rem;
 }
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .mb-6 {
@@ -4777,6 +4859,10 @@ textarea:focus-visible {
   margin-right: 0.75rem;
 }
 
+.ms-2 {
+  margin-inline-start: 0.5rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -4793,18 +4879,6 @@ textarea:focus-visible {
   margin-top: 2rem;
 }
 
-.-mt-\[90px\] {
-  margin-top: -90px;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
 .block {
   display: block;
 }
@@ -4815,6 +4889,10 @@ textarea:focus-visible {
 
 .inline {
   display: inline;
+}
+
+.\!flex {
+  display: flex !important;
 }
 
 .flex {
@@ -4875,6 +4953,10 @@ textarea:focus-visible {
   height: 64rem;
 }
 
+.\!h-2\.5 {
+  height: 0.625rem !important;
+}
+
 .h-2 {
   height: 0.5rem;
 }
@@ -4915,6 +4997,10 @@ textarea:focus-visible {
   height: 100svh;
 }
 
+.\!w-2\.5 {
+  width: 0.625rem !important;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -4949,6 +5035,14 @@ textarea:focus-visible {
 
 .w-px {
   width: 1px;
+}
+
+.min-w-28 {
+  min-width: 7rem;
+}
+
+.min-w-48 {
+  min-width: 12rem;
 }
 
 .max-w-2xl {
@@ -5044,6 +5138,10 @@ textarea:focus-visible {
   justify-content: center;
 }
 
+.\!justify-between {
+  justify-content: space-between !important;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -5054,6 +5152,11 @@ textarea:focus-visible {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
 }
 
 .gap-x-2 {
@@ -5161,12 +5264,25 @@ textarea:focus-visible {
   border-radius: 0.75rem;
 }
 
+.rounded-t-lg {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .border {
   border-width: 1px;
 }
 
 .border-t {
   border-top-width: 1px;
+}
+
+.\!border-none {
+  border-style: none !important;
+}
+
+.\!border-base-content\/40 {
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.4)) !important;
 }
 
 .border-base-content\/20 {
@@ -5182,11 +5298,6 @@ textarea:focus-visible {
   border-color: rgb(31 41 55 / var(--tw-border-opacity, 1));
 }
 
-.border-indigo-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(55 48 163 / var(--tw-border-opacity, 1));
-}
-
 .border-indigo-900 {
   --tw-border-opacity: 1;
   border-color: rgb(49 46 129 / var(--tw-border-opacity, 1));
@@ -5195,6 +5306,11 @@ textarea:focus-visible {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.\!bg-base-100 {
+  --tw-bg-opacity: 1 !important;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1))) !important;
 }
 
 .bg-base-100 {
@@ -5229,14 +5345,13 @@ textarea:focus-visible {
   background-color: rgb(49 46 129 / 0.2);
 }
 
-.bg-indigo-950 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 27 75 / var(--tw-bg-opacity, 1));
-}
-
 .bg-slate-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(2 6 23 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-950\/40 {
+  background-color: rgb(2 6 23 / 0.4);
 }
 
 .bg-white {
@@ -5246,14 +5361,6 @@ textarea:focus-visible {
 
 .bg-white\/5 {
   background-color: rgb(255 255 255 / 0.05);
-}
-
-.bg-slate-950\/80 {
-  background-color: rgb(2 6 23 / 0.8);
-}
-
-.bg-slate-950\/40 {
-  background-color: rgb(2 6 23 / 0.4);
 }
 
 .bg-gradient-to-r {
@@ -5367,6 +5474,10 @@ textarea:focus-visible {
   padding: 0.375rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .p-2\.5 {
   padding: 0.625rem;
 }
@@ -5383,14 +5494,19 @@ textarea:focus-visible {
   padding: 1px;
 }
 
+.\!px-2 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.\!px-2\.5 {
+  padding-left: 0.625rem !important;
+  padding-right: 0.625rem !important;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .px-3 {
@@ -5418,11 +5534,6 @@ textarea:focus-visible {
   padding-right: 2rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
 .py-1\.5 {
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
@@ -5443,6 +5554,11 @@ textarea:focus-visible {
   padding-bottom: 0.625rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -5458,14 +5574,8 @@ textarea:focus-visible {
   padding-bottom: 1.5rem;
 }
 
-.py-14 {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-}
-
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+.pb-10 {
+  padding-bottom: 2.5rem;
 }
 
 .pb-6 {
@@ -5476,36 +5586,12 @@ textarea:focus-visible {
   padding-top: 3rem;
 }
 
-.pt-14 {
-  padding-top: 3.5rem;
-}
-
 .pt-16 {
   padding-top: 4rem;
 }
 
-.pt-3 {
-  padding-top: 0.75rem;
-}
-
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-
-.pb-8 {
-  padding-bottom: 2rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
-}
-
-.pb-24 {
-  padding-bottom: 6rem;
 }
 
 .text-center {
@@ -5514,6 +5600,11 @@ textarea:focus-visible {
 
 .align-bottom {
   vertical-align: bottom;
+}
+
+.\!text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
 }
 
 .text-2xl {
@@ -5564,6 +5655,14 @@ textarea:focus-visible {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.\!font-medium {
+  font-weight: 500 !important;
+}
+
+.\!font-semibold {
+  font-weight: 600 !important;
 }
 
 .font-bold {
@@ -5625,6 +5724,11 @@ textarea:focus-visible {
   color: rgb(37 99 235 / var(--tw-text-opacity, 1));
 }
 
+.text-error {
+  --tw-text-opacity: 1;
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
+}
+
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity, 1));
@@ -5655,11 +5759,6 @@ textarea:focus-visible {
   color: rgb(17 24 39 / var(--tw-text-opacity, 1));
 }
 
-.text-indigo-400 {
-  --tw-text-opacity: 1;
-  color: rgb(129 140 248 / var(--tw-text-opacity, 1));
-}
-
 .text-primary {
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
@@ -5668,6 +5767,11 @@ textarea:focus-visible {
 .text-slate-100 {
   --tw-text-opacity: 1;
   color: rgb(241 245 249 / var(--tw-text-opacity, 1));
+}
+
+.text-success {
+  --tw-text-opacity: 1;
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
 }
 
 .text-transparent {
@@ -5728,14 +5832,14 @@ textarea:focus-visible {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.outline {
+  outline-style: solid;
+}
+
 .ring-1 {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.ring-gray-900\/10 {
-  --tw-ring-color: rgb(17 24 39 / 0.1);
 }
 
 .ring-white\/10 {
@@ -5761,8 +5865,8 @@ textarea:focus-visible {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.backdrop-blur-\[2px\] {
-  --tw-backdrop-blur: blur(2px);
+.backdrop-blur {
+  --tw-backdrop-blur: blur(8px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -5775,12 +5879,6 @@ textarea:focus-visible {
 
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
-.backdrop-blur {
-  --tw-backdrop-blur: blur(8px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
@@ -5866,32 +5964,52 @@ textarea:focus-visible {
   position: absolute !important;
 }
 
+.selected .combo-box-selected\:carousel-box.carousel-box {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.selected .combo-box-selected\:carousel-box .carousel-box {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.selected .combo-box-selected\:carousel-dot.carousel-dot {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.selected .combo-box-selected\:carousel-dot .carousel-dot {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
 @media (hover:hover) {
   
-.menu li:not(.disabled, :disabled, [disabled]) > .combo-box-selected\:active*:not(ul, .menu-title, .collapse, .btn) {
+.menu li:not(.disabled, :disabled, [disabled]) > .combo-box-selected\:active:not(ul, .menu-title, .collapse, .btn) {
     background-color: var(--fallback-p,oklch(var(--p)/0.1));
     --tw-text-opacity: 1;
-    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   }
 }
 
 .selected .combo-box-selected\:active.advance-select-option {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .selected .combo-box-selected\:active.dropdown-item {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 
-.menu li:not(.disabled, :disabled, [disabled]) > .selected .combo-box-selected\:menu*:not(ul, .menu-title, .collapse, .btn) {
+.menu li:not(.disabled, :disabled, [disabled]) > .selected .combo-box-selected\:menu:not(ul, .menu-title, .collapse, .btn) {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .table .selected .combo-box-selected\:activetr,
@@ -5904,32 +6022,52 @@ textarea:focus-visible {
   background-color: var(--fallback-bc,oklch(var(--bc)/0.1));
 }
 
+.selected.combo-box-selected\:carousel-box.carousel-box {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.selected.combo-box-selected\:carousel-box .carousel-box {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.selected.combo-box-selected\:carousel-dot.carousel-dot {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.selected.combo-box-selected\:carousel-dot .carousel-dot {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
 @media (hover:hover) {
   
-.menu li:not(.disabled, :disabled, [disabled]) > .combo-box-selected\:active*:not(ul, .menu-title, .collapse, .btn) {
+.menu li:not(.disabled, :disabled, [disabled]) > .combo-box-selected\:active:not(ul, .menu-title, .collapse, .btn) {
     background-color: var(--fallback-p,oklch(var(--p)/0.1));
     --tw-text-opacity: 1;
-    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+    color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
   }
 }
 
 .selected.combo-box-selected\:active.advance-select-option {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .selected.combo-box-selected\:active.dropdown-item {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 
-.menu li:not(.disabled, :disabled, [disabled]) > .selected.combo-box-selected\:menu*:not(ul, .menu-title, .collapse, .btn) {
+.menu li:not(.disabled, :disabled, [disabled]) > .selected.combo-box-selected\:menu:not(ul, .menu-title, .collapse, .btn) {
   background-color: var(--fallback-p,oklch(var(--p)/0.1));
   --tw-text-opacity: 1;
-  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
 }
 
 .table tr.selected.combo-box-selected\:active,
@@ -5944,17 +6082,17 @@ textarea:focus-visible {
 
 .complete .file-upload-complete\:progress-success {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
   --tw-text-opacity: 1;
-  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity)));
+  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity, 1)));
   --progress-color: var(--fallback-su,oklch(var(--su)/1));
 }
 
 .complete.file-upload-complete\:progress-success {
   --tw-bg-opacity: 1;
-  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity)));
+  background-color: var(--fallback-su,oklch(var(--su)/var(--tw-bg-opacity, 1)));
   --tw-text-opacity: 1;
-  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity)));
+  color: var(--fallback-suc,oklch(var(--suc)/var(--tw-text-opacity, 1)));
   --progress-color: var(--fallback-su,oklch(var(--su)/1));
 }
 
@@ -6006,10 +6144,6 @@ textarea:focus-visible {
   --tw-shadow: inset 0 -5px 10px #8fdfff3f;
   --tw-shadow-colored: inset 0 -5px 10px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.hover\:ring-gray-900\/20:hover {
-  --tw-ring-color: rgb(17 24 39 / 0.2);
 }
 
 .focus\:border-primary:focus {
@@ -6082,24 +6216,12 @@ textarea:focus-visible {
     margin-left: -20rem;
   }
 
-  .sm\:mb-8 {
-    margin-bottom: 2rem;
-  }
-
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:w-\[72\.1875rem\] {
     width: 72.1875rem;
   }
 
   .sm\:max-w-sm {
     max-width: 24rem;
-  }
-
-  .sm\:justify-center {
-    justify-content: center;
   }
 
   .sm\:rounded-3xl {
@@ -6124,11 +6246,6 @@ textarea:focus-visible {
   .sm\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
-  }
-
-  .sm\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
   }
 
   .sm\:text-4xl {
@@ -6157,10 +6274,6 @@ textarea:focus-visible {
 }
 
 @media (min-width: 768px) {
-  .md\:mb-6 {
-    margin-bottom: 1.5rem;
-  }
-
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -6176,10 +6289,6 @@ textarea:focus-visible {
 
   .md\:pt-24 {
     padding-top: 6rem;
-  }
-
-  .md\:pb-6 {
-    padding-bottom: 1.5rem;
   }
 
   .md\:text-\[36px\] {
@@ -6277,11 +6386,6 @@ textarea:focus-visible {
     padding-right: 2rem;
   }
 
-  .lg\:py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
@@ -6304,4 +6408,8 @@ textarea:focus-visible {
   .xl\:-top-6 {
     top: -1.5rem;
   }
+}
+
+.rtl\:\!mr-0:where([dir="rtl"], [dir="rtl"] *) {
+  margin-right: 0px !important;
 }
