@@ -635,6 +635,14 @@ html {
   --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m5 12l5 5L20 7'/%3E%3C/svg%3E");
 }
 
+.icon-\[tabler--eye\] {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M10 12a2 2 0 1 0 4 0a2 2 0 0 0-4 0'/%3E%3Cpath d='M21 12c-2.4 4-5.4 6-9 6c-3.6 0-6.6-2-9-6c2.4-4 5.4-6 9-6c3.6 0 6.6 2 9 6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.icon-\[tabler--eye-off\] {
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M10.585 10.587a2 2 0 0 0 2.829 2.828'/%3E%3Cpath d='M16.681 16.673A8.717 8.717 0 0 1 12 18c-3.6 0-6.6-2-9-6c1.272-2.12 2.712-3.678 4.32-4.674m2.86-1.146A9.055 9.055 0 0 1 12 6c3.6 0 6.6 2 9 6c-.666 1.11-1.379 2.067-2.138 2.87M3 3l18 18'/%3E%3C/g%3E%3C/svg%3E");
+}
+
 .icon-\[tabler--trash\] {
   --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3'/%3E%3C/svg%3E");
 }
@@ -1343,6 +1351,11 @@ html {
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity, 1)));
   --tw-text-opacity: 1;
   color: var(--fallback-b1,oklch(var(--b1)/var(--tw-text-opacity, 1)));
+}
+
+.radio,
+.radio-inset {
+  flex-shrink: 0;
 }
 
 .select {
@@ -2324,6 +2337,15 @@ select.is-invalid + .advance-select-toggle:focus,
       linear-gradient(0deg, var(--chkbg) 45%, var(--chkfg) 45%, var(--chkfg) 55%, var(--chkbg) 55%);
 }
 
+.checkbox-primary {
+  --chkbg: var(--fallback-p,oklch(var(--p)/1));
+  --chkfg: var(--fallback-pc,oklch(var(--pc)/1));
+}
+
+.checkbox-primary:checked:focus-visible, .checkbox-primary[checked="true"]:focus-visible, .checkbox-primary[aria-checked="true"]:focus-visible {
+  outline-color: var(--fallback-p,oklch(var(--p)/0.3));
+}
+
 .checkbox.disabled,
   .checkbox:disabled,
   .checkbox[disabled] {
@@ -2475,6 +2497,13 @@ select.is-invalid + .advance-select-toggle:focus,
   color: var(--fallback-bc,oklch(var(--bc)/0.9));
 }
 
+.label-text {
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--fallback-bc,oklch(var(--bc)/0.9));
+}
+
 input {
   background-color: transparent;
 }
@@ -2567,6 +2596,72 @@ input:focus-visible {
   color: var(--fallback-bc,oklch(var(--bc)/0.5));
 }
 
+.peer:focus ~ .input-filled-label,.peer:focus ~ 
+.input-floating-label {
+  --tw-text-opacity: 1;
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
+}
+
+.peer.input-lg ~ .input-filled-label,.peer.input-lg ~ 
+.input-floating-label {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+.peer.input-sm ~ .input-filled-label,.peer.input-sm ~ 
+.input-floating-label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.peer.input-lg ~ .input-filled-label {
+  top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.peer.input-sm ~ .input-filled-label {
+  top: 0.625rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.peer:not(:-moz-placeholder-shown) ~ .input-filled-label {
+  top: 0.125rem;
+  margin-inline-start: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.peer:focus ~ .input-filled-label,
+  .peer:focus-within ~ .input-filled-label,
+  .peer:not(:placeholder-shown) ~ .input-filled-label {
+  top: 0.125rem;
+  margin-inline-start: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.peer.input-lg:not(:-moz-placeholder-shown) ~ .input-filled-label {
+  margin-inline-start: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.peer.input-lg:focus ~ .input-filled-label,
+  .peer.input-lg:focus-within ~ .input-filled-label,
+  .peer.input-lg:not(:placeholder-shown) ~ .input-filled-label {
+  margin-inline-start: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .input.input-filled.input-sm:not(:-moz-placeholder-shown) {
   padding-top: 0.5rem;
 }
@@ -2585,6 +2680,96 @@ input:focus-visible {
   .input.input-filled:not(:placeholder-shown),
   .input.input-filled.input-lg:not(:placeholder-shown) {
   padding-top: 0.75rem;
+}
+
+.peer.input-lg ~ .input-floating-label {
+  top: 0.7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.peer.input-sm ~ .input-floating-label {
+  top: 0.3rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.peer:not(:-moz-placeholder-shown) ~ .input-floating-label {
+  top: 0px;
+  margin-inline-start: 0.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.peer:focus ~ .input-floating-label,
+  .peer:focus-within ~ .input-floating-label,
+  .peer:not(:placeholder-shown) ~ .input-floating-label {
+  top: 0px;
+  margin-inline-start: 0.5rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.peer.input-lg:not(:-moz-placeholder-shown) ~ .input-floating-label {
+  margin-inline-start: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.peer.input-lg:focus ~ .input-floating-label,
+  .peer.input-lg:focus-within ~ .input-floating-label,
+  .peer.input-lg:not(:placeholder-shown) ~ .input-floating-label {
+  margin-inline-start: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  border-radius: var(--rounded-btn, 0.375rem);
+  border-width: 1px;
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.25));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
+}
+
+.input-group:has(:hover) {
+  border-color: var(--fallback-bc,oklch(var(--bc)/0.6));
+}
+
+.input-group:has(:focus),
+  .input-group:has(:focus-within) {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
+  --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
+  --tw-shadow: var(--tw-shadow-colored);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-shadow-color: var(--fallback-p,oklch(var(--p)/0.22));
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity, 1)));
 }
 
 .input-group:has(input.disabled),
@@ -2626,6 +2811,29 @@ input:focus-visible {
     .input-group-filled .input:disabled,
     .input-group-filled .input[disabled] {
   background-color: transparent;
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-weight: 400;
+  color: var(--fallback-bc,oklch(var(--bc)/0.9));
+  transition: border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.input-group-text:first-child {
+  border-start-start-radius: var(--rounded-btn, 0.375rem);
+  border-end-start-radius: var(--rounded-btn, 0.375rem);
+  padding-inline-end: 0px;
+}
+
+.input-group-text:last-child {
+  border-start-end-radius: var(--rounded-btn, 0.375rem);
+  border-end-end-radius: var(--rounded-btn, 0.375rem);
+  padding-inline-start: 0px;
 }
 
 .input[type="file"].input-floating::file-selector-button {
@@ -2813,12 +3021,28 @@ input:focus-visible {
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
+.success-message {
+  display: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: var(--fallback-su,oklch(var(--su)/var(--tw-text-opacity, 1)));
+}
+
 .validate *:has(> .input:valid) ~ .success-message,
 .validate *:has(> .input:valid)  > * > .success-message,
 
 .validate .input:valid ~ .success-message,
 .validate .input:valid  + * > .success-message {
   display: block;
+}
+
+.error-message {
+  display: none;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
 .validate *:has(> .input:invalid) ~ .error-message,
@@ -3236,6 +3460,59 @@ input:focus-visible {
   }
 }
 
+.radio {
+  --basebg: var(--fallback-b1,oklch(var(--b1)/1));
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 9999px;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-n,oklch(var(--n)/var(--tw-border-opacity, 1)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
+}
+
+.radio:focus {
+  box-shadow: none;
+}
+
+.radio:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 0px;
+  outline-color: var(--fallback-n,oklch(var(--n)/0.3));
+}
+
+.radio:checked,
+  .radio[aria-checked="true"] {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-n,oklch(var(--n)/var(--tw-border-opacity, 1)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity, 1)));
+  background-image: none;
+  animation: radiomark var(--animation-input, 0.1s) ease-out;
+  box-shadow: 0 0 0 3px var(--basebg) inset,
+      0 0 0 3px var(--basebg) inset,
+      var(--tw-ring-offset-shadow),
+      var(--tw-ring-shadow);
+}
+
+.radio-primary:checked,
+    .radio-primary[aria-checked="true"] {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.radio-primary:checked:focus-visible, .radio-primary[aria-checked="true"]:focus-visible {
+  outline-color: var(--fallback-p,oklch(var(--p)/0.3));
+}
+
 .radio.disabled,
   .radio:disabled,
   .radio[disabled],
@@ -3417,6 +3694,22 @@ input:focus-visible {
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
 }
 
+.validate *:has(> .radio:valid) ~ .success-message,
+.validate *:has(> .radio:valid) > * > .success-message,
+
+.validate .radio:valid ~ .success-message,
+.validate .radio:valid + * > .success-message {
+  display: block;
+}
+
+.validate *:has(> .radio:invalid) ~ .error-message,
+.validate *:has(> .radio:invalid) > * > .error-message,
+
+.validate .radio:invalid ~ .error-message,
+.validate .radio:invalid + * > .error-message {
+  display: block;
+}
+
 .radio-inset.is-valid,
 .validate .radio-inset:valid {
   --tw-border-opacity: 1 !important;
@@ -3491,6 +3784,22 @@ input:focus-visible {
 .validate *:has(.radio-inset:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
+}
+
+.validate *:has(> .radio-inset:valid) ~ .success-message,
+.validate *:has(> .radio-inset:valid) > * > .success-message,
+
+.validate .radio-inset:valid ~ .success-message,
+.validate .radio-inset:valid + * > .success-message {
+  display: block;
+}
+
+.validate *:has(> .radio-inset:invalid) ~ .error-message,
+.validate *:has(> .radio-inset:invalid) > * > .error-message,
+
+.validate .radio-inset:invalid ~ .error-message,
+.validate .radio-inset:invalid + * > .error-message {
+  display: block;
 }
 
 .range.disabled,
@@ -3867,12 +4176,36 @@ input:focus-visible {
         0 0 0 3px var(--tglbg) inset;
 }
 
+.switch-primary:checked,
+    .switch-primary[checked="true"],
+    .switch-primary[aria-checked="true"] {
+  --tglbg: var(--fallback-p,oklch(var(--p)/1));
+}
+
+.switch-primary:checked:focus-visible, .switch-primary[checked="true"]:focus-visible, .switch-primary[aria-checked="true"]:focus-visible {
+  outline-color: var(--fallback-p,oklch(var(--p)/0.3));
+}
+
 .switch.disabled,
   .switch:disabled,
   .switch[disabled] {
   pointer-events: none;
   background-color: transparent;
   opacity: 0.4;
+}
+
+.switch-outline.switch-primary:checked,
+      .switch-outline.switch-primary[checked="true"],
+      .switch-outline.switch-primary[aria-checked="true"] {
+  --tglbg: var(--fallback-b1,oklch(var(--b1)/1));
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
+}
+
+.switch-outline.switch-primary:checked:focus-visible, .switch-outline.switch-primary[checked="true"]:focus-visible, .switch-outline.switch-primary[aria-checked="true"]:focus-visible {
+  outline-color: var(--fallback-p,oklch(var(--p)/0.3));
 }
 
 .switch-outline.disabled,
@@ -4042,6 +4375,22 @@ input:focus-visible {
 .validate *:has(.switch-outline:invalid) ~ .label .label-text {
   --tw-text-opacity: 1;
   color: var(--fallback-er,oklch(var(--er)/var(--tw-text-opacity, 1)));
+}
+
+.validate *:has(> .switch-outline:valid) ~ .success-message,
+.validate *:has(> .switch-outline:valid) > * > .success-message,
+
+.validate .switch-outline:valid ~ .success-message,
+.validate .switch-outline:valid + * > .success-message {
+  display: block;
+}
+
+.validate *:has(> .switch-outline:invalid) ~ .error-message,
+.validate *:has(> .switch-outline:invalid) > * > .error-message,
+
+.validate .switch-outline:invalid ~ .error-message,
+.validate .switch-outline:invalid + * > .error-message {
+  display: block;
 }
 
 .tabs-lifted > .tab:focus-visible {
@@ -4298,6 +4647,76 @@ textarea:focus-visible {
 
 .textarea.textarea-filled.disabled ~ .textarea-filled-label, .textarea.textarea-filled:disabled ~ .textarea-filled-label, .textarea.textarea-filled[disabled] ~ .textarea-filled-label {
   color: var(--fallback-bc,oklch(var(--bc)/0.5));
+}
+
+.peer:focus ~ .textarea-floating-label,.peer:focus ~ 
+.textarea-filled-label {
+  --tw-text-opacity: 1;
+  color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity, 1)));
+}
+
+.peer:focus ~ .textarea-floating-label::-moz-placeholder, .peer:focus ~ 
+.textarea-filled-label::-moz-placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/0.5));
+}
+
+.peer:focus ~ .textarea-floating-label::placeholder,.peer:focus ~ 
+.textarea-filled-label::placeholder {
+  color: var(--fallback-bc,oklch(var(--bc)/0.5));
+}
+
+.peer:not(:-moz-placeholder-shown) ~ .textarea-floating-label {
+  top: 0px;
+  margin-inline-start: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.peer:focus ~ .textarea-floating-label,
+  .peer:focus-within ~ .textarea-floating-label,
+  .peer:not(:placeholder-shown) ~ .textarea-floating-label {
+  top: 0px;
+  margin-inline-start: 0.75rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity, 1)));
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.peer:not(:-moz-placeholder-shown) ~ .textarea-filled-label {
+  top: 0.25rem;
+  margin-inline-start: 1rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.peer:focus ~ .textarea-filled-label,
+  .peer:focus-within ~ .textarea-filled-label,
+  .peer:not(:placeholder-shown) ~ .textarea-filled-label {
+  top: 0.25rem;
+  margin-inline-start: 1rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .input-group .textarea {
@@ -4572,6 +4991,21 @@ textarea:focus-visible {
 
 .menu-vertical > li:not(.menu-title) > .collapse > ul {
   position: relative;
+}
+
+[type="radio"].radio.radio-xs, [type="radio"].radio-inset.radio-xs {
+  width: 1rem;
+  height: 1rem;
+}
+
+[type="radio"].radio.radio-sm, [type="radio"].radio-inset.radio-sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+[type="radio"].radio.radio-lg, [type="radio"].radio-inset.radio-lg {
+  width: 2rem;
+  height: 2rem;
 }
 
 .tabs-lg :where(.tab) {
@@ -4879,6 +5313,14 @@ textarea:focus-visible {
   margin-top: 2rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -4995,6 +5437,10 @@ textarea:focus-visible {
 
 .h-svh {
   height: 100svh;
+}
+
+.min-h-20 {
+  min-height: 5rem;
 }
 
 .\!w-2\.5 {
@@ -5114,8 +5560,16 @@ textarea:focus-visible {
   cursor: pointer;
 }
 
+.resize-none {
+  resize: none;
+}
+
 .resize {
   resize: both;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -5154,6 +5608,14 @@ textarea:focus-visible {
   gap: 2rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
@@ -5172,6 +5634,10 @@ textarea:focus-visible {
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
+}
+
+.gap-y-4 {
+  row-gap: 1rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -5361,6 +5827,11 @@ textarea:focus-visible {
 
 .bg-white\/5 {
   background-color: rgb(255 255 255 / 0.05);
+}
+
+.bg-base-300 {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity, 1)));
 }
 
 .bg-gradient-to-r {
@@ -5594,6 +6065,10 @@ textarea:focus-visible {
   padding-top: 1.5rem;
 }
 
+.pb-25 {
+  padding-bottom: 6.25rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -5655,6 +6130,11 @@ textarea:focus-visible {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 }
 
 .\!font-medium {
@@ -5829,6 +6309,12 @@ textarea:focus-visible {
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 var(--fallback-bs,oklch(var(--bs)/0.22));
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow {
+  --tw-shadow: 0 2px 4px 0 var(--fallback-bs,oklch(var(--bs)/0.26));
+  --tw-shadow-colored: 0 2px 4px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -6183,6 +6669,22 @@ textarea:focus-visible {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.active.password-active\:block {
+  display: block;
+}
+
+.active.password-active\:hidden {
+  display: none;
+}
+
+.active .password-active\:block {
+  display: block;
+}
+
+.active .password-active\:hidden {
+  display: none;
+}
+
 .selected .combo-box-selected\:block {
   display: block;
 }
@@ -6276,6 +6778,10 @@ textarea:focus-visible {
 @media (min-width: 768px) {
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:gap-14 {
