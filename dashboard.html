@@ -62,7 +62,7 @@
                 <a href="login.html"
                     class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Log
                     In</a>
-                <a href="signup.html"
+                <a href="login.html"
                     class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Sign
                     Up</a>
             </div>
@@ -101,14 +101,9 @@
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
                         </div>
                         <div class="py-6">
-                            <div class="flex lg:flex lg:flex-1 lg:justify-end gap-4">
-                                <a href="login.html"
-                                    class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Log
-                                    In</a>
-                                <a href="signup.html"
-                                    class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Sign
-                                    Up</a>
-                            </div>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
+                                in</a>
                         </div>
                     </div>
                 </div>
@@ -117,72 +112,39 @@
     </header>
     <!-- Header with nav menu -end -->
 
-    <section class="relative isolate px-0 sm:px-3 md:px-5 lg:px-8 min-h-svh grid place-items-center -mt-[90px] py-20">
-        <!-- Background element -start -->
-        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 opacity-40"
-            aria-hidden="true">
-            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-            </div>
-        </div>
-        <!-- Background element -end -->
-
-        <!-- Login form -start -->
-        <div class="max-w-md mx-auto pb-25 pt-14 h-full grid place-items-center">
-            <div class="bg-slate-950/40 backdrop-blur border border-indigo-900 w-full rounded-lg shadow min-w-[448px]">
-                <h4 class="bg-indigo-900 rounded-t-lg p-4 text-2xl font-bold text-white">Login</h4>
-                <div class="w-full p-4">
-                    <form class="needs-validation peer grid gap-y-4 py-8 px-4" novalidate>
-                        <!-- Email and password -->
-                        <div class="grid grid-cols-1 gap-6">
-                            <div>
-                                <label class="label label-text" for="userEmail">Email</label>
-                                <input id="userEmail" type="email" class="input" placeholder="john@gmail.com"
-                                    aria-label="john@gmail.com" required="" />
-                                <span class="error-message">Please enter a valid email</span>
-                                <span class="success-message">Looks good!</span>
-                            </div>
-                            <div>
-                                <label class="label label-text" for="userPassword">Password</label>
-                                <div class="input-group">
-                                    <input id="userPassword" type="password" class="input" placeholder="Enter password"
-                                        required />
-                                    <span class="input-group-text">
-                                        <button type="button" data-toggle-password='{ "target": "#userPassword" }'
-                                            class="block">
-                                            <span
-                                                class="icon-[tabler--eye] text-base-content/80 password-active:block hidden size-4 flex-shrink-0"></span>
-                                            <span
-                                                class="icon-[tabler--eye-off] text-base-content/80 password-active:hidden block size-4 flex-shrink-0"></span>
-                                        </button>
-                                    </span>
-                                </div>
-                                <span class="error-message">Please enter a valid password</span>
-                                <span class="success-message">Looks good!</span>
-                            </div>
-                        </div>
-                        <!-- Submit button -->
-                        <div class="mt-4">
-                            <button type="submit" name="submitButton" class="btn btn-primary">Login</button>
-                        </div>
-                    </form>
+    <!-- Main area - start -->
+    <section class="min-h-svh flex pt-5">
+        <aside class="max-w-80 w-full text-white p-5 bg-[#0F172A]">
+            <h4 class="text-white text-2xl pb-5 border-b border-stone-700 mb-5">Dashboard</h4>
+            <ul class="space-y-5">
+                <li><a href="#" class="">Dashboard</a></li>
+                <li><a href="#" class="">Dashboard</a></li>
+                <li><a href="#" class="">Dashboard</a></li>
+                <li><a href="#" class="">Dashboard</a></li>
+                <li><a href="#" class="">Dashboard</a></li>
+            </ul>
+        </aside>
+        <main class="w-full px-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-900 p-6 rounded-lg">
+                    <h2 class="text-2xl font-semibold text-white">Total Users</h2>
+                    <p class="text-4xl font-bold text-white">1,200</p>
+                </div>
+                <div class="bg-slate-900 p-6 rounded-lg">
+                    <h2 class="text-2xl font-semibold text-white">Total Users</h2>
+                    <p class="text-4xl font-bold text-white">1,200</p>
+                </div>
+                <div class="bg-slate-900 p-6 rounded-lg">
+                    <h2 class="text-2xl font-semibold text-white">Total Users</h2>
+                    <p class="text-4xl font-bold text-white">1,200</p>
                 </div>
             </div>
-        </div>
-        <!-- Login form -end -->
-
-        <!-- Bottom shape -->
-        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] opacity-40"
-            aria-hidden="true">
-            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-            </div>
-        </div>
     </section>
+    <!-- Main area - end -->
 
 
 
-    <!-- Footer -->
+    <!-- Footer start -->
     <footer class="bg-slate-950 text-white pt-12 pb-6 relative isolate overflow-hidden ">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8 md:gap-14">
@@ -236,6 +198,7 @@
 
     <!-- All Script -->
     <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>
