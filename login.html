@@ -129,23 +129,27 @@
 
         <!-- Login form -start -->
         <div class="max-w-md mx-auto pb-25 pt-14 h-full grid place-items-center">
-            <div class="bg-slate-950/40 backdrop-blur border border-indigo-900 w-full rounded-lg shadow min-w-[448px]">
-                <h4 class="bg-indigo-900 rounded-t-lg p-4 text-2xl font-bold text-white">Login</h4>
-                <div class="w-full p-4">
-                    <form class="needs-validation peer grid gap-y-4 py-8 px-4" novalidate>
+            <div
+                class="bg-slate-950/40 backdrop-blur w-full rounded-3xl shadow min-w-[448px] py-16 px-10 login-signup-form-wrapper">
+                <h4 class="rounded-t-lg text-2xl font-bold text-zinc-200 mb-8"><span
+                        class="text-3xl font-bold bg-gradient-to-tr from-violet-900 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">Login</span>
+                    in to your account
+                </h4>
+                <div class="w-full">
+                    <form class="needs-validation peer grid" novalidate>
                         <!-- Email and password -->
-                        <div class="grid grid-cols-1 gap-6">
+                        <div class="grid grid-cols-1 gap-4">
                             <div>
-                                <label class="label label-text" for="userEmail">Email</label>
-                                <input id="userEmail" type="email" class="input" placeholder="john@gmail.com"
+                                <label class="label label-text text-zinc-200" for="userEmail">Email</label>
+                                <input id="userEmail" type="email" class="input bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0" placeholder="john@gmail.com"
                                     aria-label="john@gmail.com" required="" />
                                 <span class="error-message">Please enter a valid email</span>
                                 <span class="success-message">Looks good!</span>
                             </div>
                             <div>
-                                <label class="label label-text" for="userPassword">Password</label>
-                                <div class="input-group">
-                                    <input id="userPassword" type="password" class="input" placeholder="Enter password"
+                                <label class="label label-text text-zinc-200" for="userPassword">Password</label>
+                                <div class="input-group bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0">
+                                    <input id="userPassword" type="password" class="input placeholder:text-zinc-400" placeholder="Enter password"
                                         required />
                                     <span class="input-group-text">
                                         <button type="button" data-toggle-password='{ "target": "#userPassword" }'
@@ -162,8 +166,10 @@
                             </div>
                         </div>
                         <!-- Submit button -->
-                        <div class="mt-4">
-                            <button type="submit" name="submitButton" class="btn btn-primary">Login</button>
+                        <div class="mt-6">
+                            <button type="button" name="submitButton" class="bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 text-white font-medium rounded-lg text-base px-8 py-3 text-center hover:bg-gradient-to-tr" aria-haspopup="dialog"
+                                aria-expanded="false" aria-controls="body-scroll-modal"
+                                data-overlay="#body-scroll-modal">Login</button>
                         </div>
                     </form>
                 </div>
@@ -178,6 +184,7 @@
                 style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
             </div>
         </div>
+
     </section>
 
 
@@ -234,8 +241,43 @@
     </footer>
     <!-- Footer end -->
 
+    <!-- Login success Modal -start -->
+    <div id="body-scroll-modal" class="overlay modal modal-middle overlay-open:opacity-100 hidden [--body-scroll:true]"
+        role="dialog" tabindex="-1">
+        <div class="modal-dialog overlay-open:opacity-100">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Dialog Title</h3>
+                    <button type="button" class="btn btn-text btn-circle btn-sm absolute end-3 top-3" aria-label="Close"
+                        data-overlay="#body-scroll-modal">
+                        <span class="icon-[tabler--x] size-4"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-justify">
+                        This is some placeholder content to show the scrolling behavior for modals. Instead of repeating
+                        the text in
+                        the modal, we use an inline style to set a minimum height, thereby extending the length of the
+                        overall modal
+                        and demonstrating the overflow scrolling. When content becomes longer than the height of the
+                        viewport,
+                        scrolling will move the modal as needed.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-soft btn-secondary"
+                        data-overlay="#body-scroll-modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login success Modal -end -->
+
     <!-- All Script -->
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
+    <script src="node_modules/flyonui/flyonui.js"></script>
+
 </body>
 
 </html>

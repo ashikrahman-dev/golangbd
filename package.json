@@ -19,6 +19,6 @@
         "vite": "^6.0.3"
     },
     "dependencies": {
-        "flyonui": "^1.1.0"
+        "flyonui": "^1.3.0"
     }
 }
