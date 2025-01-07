@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoLangBD</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -125,15 +125,21 @@
 
         <!-- Sign UP form -start -->
         <div class="max-w-md mx-auto pb-25 pt-14 h-full grid place-items-center">
-            <div class="bg-slate-950/40 backdrop-blur border border-indigo-900 w-full rounded-lg shadow min-w-[448px]">
-                <h4 class="bg-indigo-900 rounded-t-lg p-4 text-2xl font-bold text-white">Sign up</h4>
-                <div class="w-full p-4">
-                    <form class="needs-validation peer grid gap-y-4 py-8 px-4" novalidate>
+            <div
+                class="bg-slate-950/40 backdrop-blur w-full rounded-3xl shadow min-w-[448px] py-16 px-10 login-signup-form-wrapper">
+                <h4 class="rounded-t-lg text-2xl font-bold text-zinc-200 mb-8"><span
+                        class="text-3xl font-bold bg-gradient-to-tr from-violet-900 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">Sign
+                        up</span> in to your account
+                </h4>
+                <div class="w-full">
+                    <form class="needs-validation peer grid gap-4" method="post" novalidate>
 
                         <div class="grid grid-cols-1 gap-6 w-full">
                             <div>
-                                <label class="label label-text" for="fullName">Name </label>
-                                <input id="fullName" type="text" placeholder="John" class="input" required />
+                                <label class="label label-text text-zinc-200" for="fullName">Name </label>
+                                <input id="fullName" name="name" type="text" placeholder="John"
+                                    class="input bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0"
+                                    required />
                                 <span class="error-message">Please enter your name.</span>
                                 <span class="success-message">Looks good!</span>
                             </div>
@@ -142,25 +148,29 @@
                         <div class="grid grid-cols-1 gap-6">
                             <!-- Email -->
                             <div>
-                                <label class="label label-text" for="userEmail">Email</label>
-                                <input id="userEmail" type="email" class="input" placeholder="john@gmail.com"
-                                    aria-label="john@gmail.com" required="" />
+                                <label class="label label-text text-zinc-200" for="userEmail">Email</label>
+                                <input id="userEmail" name="email" type="email"
+                                    class="input bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0"
+                                    placeholder="john@gmail.com" aria-label="john@gmail.com" required="" />
                                 <span class="error-message">Please enter a valid email</span>
                                 <span class="success-message">Looks good!</span>
                             </div>
                             <!-- User Name -->
                             <div>
-                                <label class="label label-text" for="username">Username </label>
-                                <input id="username" type="text" placeholder="username" class="input" required />
+                                <label class="label label-text text-zinc-200" for="username">Username </label>
+                                <input id="username" name="username" type="text" placeholder="username"
+                                    class="input bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0"
+                                    required />
                                 <span class="error-message">Please enter your username.</span>
                                 <span class="success-message">Looks good!</span>
                             </div>
                             <!-- Password -->
                             <div>
-                                <label class="label label-text" for="userPassword">Password</label>
-                                <div class="input-group">
-                                    <input id="userPassword" type="password" class="input" placeholder="Enter password"
-                                        required />
+                                <label class="label label-text text-zinc-200" for="userPassword">Password</label>
+                                <div
+                                    class="input-group bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0">
+                                    <input id="userPassword" name="password" type="password"
+                                        class="input placeholder:text-zinc-400" placeholder="Enter password" required />
                                     <span class="input-group-text">
                                         <button type="button" data-toggle-password='{ "target": "#userPassword" }'
                                             class="block">
@@ -177,7 +187,9 @@
                         </div>
                         <!-- Submit button -->
                         <div class="mt-4">
-                            <button type="submit" name="submitButton" class="btn btn-primary">Sign Up</button>
+                            <button type="submit" name="submitButton"
+                                class="bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 text-white font-medium rounded-lg text-base px-8 py-3 text-center hover:bg-gradient-to-tr">Sign
+                                Up</button>
                         </div>
                     </form>
                 </div>
