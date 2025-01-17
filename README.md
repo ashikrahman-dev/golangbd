@@ -8,3 +8,6 @@
 
 ## Login page
 ![Sign Up page](https://github.com/ashikrahman-dev/golangbd/blob/main/assets/images/golangbd-login-page.png)
+
+## Modal/Popup
+![Sign Up page](https://github.com/ashikrahman-dev/golangbd/blob/main/assets/images/modal-image.png)
