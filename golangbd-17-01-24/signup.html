@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -30,87 +30,80 @@
     <!-- Background shape -end -->
 
     <!-- Header with nav menu -start -->
-    <header class="sticky top-0 z-50 bg-slate-950/40 backdrop-blur start-0">
-        <div class="container">
-            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1">
+    <header class="sticky top-0 z-50 container bg-slate-950/40 backdrop-blur start-0">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">goLangBD</span>
+                    <!-- <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt=""> -->
+                    <h1
+                        class="text-3xl font-bold bg-gradient-to-tr from-slate-800 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">
+                        GoLangBD</h1>
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-10">
+                <a href="index.html" class="text-sm/6 font-semibold text-gray-200">Home</a>
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">Documentation</a>
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">About</a>
+                <a href="#" class="text-sm/6 font-semibold text-gray-200">Community</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
+                <a href="login.html"
+                    class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Log
+                    In</a>
+                <a href="login.html"
+                    class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Sign
+                    Up</a>
+            </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div class="lg:hidden hidden" role="dialog" aria-modal="true">
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <div class="fixed inset-0 z-50"></div>
+            <div
+                class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div class="flex items-center justify-between">
                     <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">goLangBD</span>
-                        <!-- <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt=""> -->
+                        <span class="sr-only">GoLangBD</span>
                         <h1
-                            class="text-3xl font-bold bg-gradient-to-tr from-slate-800 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">
+                            class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-6 leading-snug">
                             GoLangBD</h1>
                     </a>
-                </div>
-                <div class="flex lg:hidden">
-                    <button type="button"
-                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                        <span class="sr-only">Open main menu</span>
+                    <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                        <span class="sr-only">Close menu</span>
                         <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                             aria-hidden="true" data-slot="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
-                <div class="hidden lg:flex lg:gap-x-10">
-                    <a href="index.html" class="text-sm/6 font-semibold text-gray-200">Home</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-200">Documentation</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-200">About</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-200">Community</a>
-                </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
-                    <a href="login.html"
-                        class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Log
-                        In</a>
-                    <a href="signup.html"
-                        class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Sign
-                        Up</a>
-                </div>
-            </nav>
-            <!-- Mobile menu, show/hide based on menu open state. -->
-            <div class="lg:hidden hidden" role="dialog" aria-modal="true">
-                <!-- Background backdrop, show/hide based on slide-over state. -->
-                <div class="fixed inset-0 z-50"></div>
-                <div
-                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">GoLangBD</span>
-                            <h1
-                                class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-6 leading-snug">
-                                GoLangBD</h1>
-                        </a>
-                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                            <span class="sr-only">Close menu</span>
-                            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                aria-hidden="true" data-slot="icon">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
-                            </div>
-                            <div class="py-6">
-                                <div class="flex lg:flex lg:flex-1 lg:justify-end gap-4">
-                                    <a href="login.html"
-                                        class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Log
-                                        In</a>
-                                    <a href="signup.html"
-                                        class="text-sm/6 font-semibold text-gray-200 hover:text-[#a38be4] transition-all duration-200">Sign
-                                        Up</a>
-                                </div>
-                            </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="#"
+                                class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
+                                in</a>
                         </div>
                     </div>
                 </div>
@@ -119,7 +112,7 @@
     </header>
     <!-- Header with nav menu -end -->
 
-    <!-- Main section -->
+    <!-- Main area - start -->
     <section class="relative isolate px-0 sm:px-3 md:px-5 lg:px-8 min-h-svh grid place-items-center -mt-[90px] py-20">
         <!-- Background element -start -->
         <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 opacity-40"
@@ -130,18 +123,30 @@
         </div>
         <!-- Background element -end -->
 
-        <!-- Login form -start -->
+        <!-- Sign UP form -start -->
         <div class="max-w-md mx-auto pb-25 pt-14 h-full grid place-items-center">
             <div
                 class="bg-slate-950/40 backdrop-blur w-full rounded-3xl shadow min-w-[448px] py-16 px-10 login-signup-form-wrapper">
                 <h4 class="rounded-t-lg text-2xl font-bold text-zinc-200 mb-8"><span
-                        class="text-3xl font-bold bg-gradient-to-tr from-violet-900 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">Login</span>
-                    in to your account
+                        class="text-3xl font-bold bg-gradient-to-tr from-violet-900 via-violet-500 to-zinc-400 bg-clip-text text-transparent leading-snug">Sign
+                        up</span> in to your account
                 </h4>
                 <div class="w-full">
-                    <form class="needs-validation peer grid" novalidate>
+                    <form class="needs-validation peer grid gap-4" method="post" novalidate>
+
+                        <div class="grid grid-cols-1 gap-6 w-full">
+                            <div>
+                                <label class="label label-text text-zinc-200" for="fullName">Name </label>
+                                <input id="fullName" name="name" type="text" placeholder="John"
+                                    class="input bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0"
+                                    required />
+                                <span class="error-message">Please enter your name.</span>
+                                <span class="success-message">Looks good!</span>
+                            </div>
+                        </div>
                         <!-- Email and password -->
-                        <div class="grid grid-cols-1 gap-4">
+                        <div class="grid grid-cols-1 gap-6">
+                            <!-- Email -->
                             <div>
                                 <label class="label label-text text-zinc-200" for="userEmail">Email</label>
                                 <input id="userEmail" name="email" type="email"
@@ -150,6 +155,16 @@
                                 <span class="error-message">Please enter a valid email</span>
                                 <span class="success-message">Looks good!</span>
                             </div>
+                            <!-- User Name -->
+                            <div>
+                                <label class="label label-text text-zinc-200" for="username">Username </label>
+                                <input id="username" name="username" type="text" placeholder="username"
+                                    class="input bg-slate-950 placeholder:text-zinc-400 border-violet-800 hover:border-violet-700 focus:outline-none focus:ring-0"
+                                    required />
+                                <span class="error-message">Please enter your username.</span>
+                                <span class="success-message">Looks good!</span>
+                            </div>
+                            <!-- Password -->
                             <div>
                                 <label class="label label-text text-zinc-200" for="userPassword">Password</label>
                                 <div
@@ -171,17 +186,16 @@
                             </div>
                         </div>
                         <!-- Submit button -->
-                        <div class="mt-6">
-                            <button type="button" name="submitButton"
-                                class="bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 text-white font-medium rounded-lg text-base px-8 py-3 text-center hover:bg-gradient-to-tr"
-                                aria-haspopup="dialog" aria-expanded="false" aria-controls="body-scroll-modal"
-                                data-overlay="#body-scroll-modal">Login</button>
+                        <div class="mt-4">
+                            <button type="submit" name="submitButton"
+                                class="bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 text-white font-medium rounded-lg text-base px-8 py-3 text-center hover:bg-gradient-to-tr">Sign
+                                Up</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- Login form -end -->
+        <!-- Sign Up form -end -->
 
         <!-- Bottom shape -->
         <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)] opacity-40"
@@ -190,11 +204,12 @@
                 style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
             </div>
         </div>
-
     </section>
-    <!-- Main section -->
+    <!-- Main area - end -->
 
-    <!-- Footer -->
+
+
+    <!-- Footer start -->
     <footer class="bg-slate-950 text-white pt-12 pb-6 relative isolate overflow-hidden ">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8 md:gap-14">
@@ -246,52 +261,8 @@
     </footer>
     <!-- Footer end -->
 
-    <!-- Login success Modal -start -->
-    <div id="body-scroll-modal" class="overlay modal modal-middle overlay-open:opacity-100 hidden [--body-scroll:true] "
-        role="dialog" tabindex="-1">
-        <div class="modal-dialog overlay-open:opacity-100 ">
-            <div class="modal-content login-signup-form-wrapper rounded-3xl px-4 py-4">
-                <div class="modal-header">
-                    <h3 class="modal-title">Dialog Title</h3>
-                    <button type="button" class="btn btn-text btn-circle btn-sm absolute end-3 top-3" aria-label="Close"
-                        data-overlay="#body-scroll-modal">
-                        <span class="icon-[tabler--x] size-4"></span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p class="text-justify">
-                        This is some placeholder content to show the scrolling behavior for modals. Instead of repeating
-                        the text in
-                        the modal, we use an inline style to set a minimum height, thereby extending the length of the
-                        overall modal
-                        and demonstrating the overflow scrolling. When content becomes longer than the height of the
-                        viewport,
-                        scrolling will move the modal as needed.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <!-- Close Button -->
-                    <button type="button" data-overlay="#body-scroll-modal"
-                        class="bg-gradient-to-tl from-slate-900 via-violet-900 to-zinc-600 text-white font-medium rounded-lg text-base px-8 py-3 text-center hover:bg-gradient-to-tr"
-                        aria-haspopup="dialog" aria-expanded="false" aria-controls="body-scroll-modal"
-                        data-overlay="#body-scroll-modal">Close</button>
-
-                    <!-- <button type="button" class="btn btn-soft btn-secondary">Close</button> -->
-
-                    <!-- Save Button -->
-                    <button type="button" name="modal_data_save"
-                        class="bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 text-white font-medium rounded-lg text-base px-8 py-3 text-center hover:bg-gradient-to-tr"
-                        aria-haspopup="dialog" aria-expanded="false" aria-controls="body-scroll-modal"
-                        data-overlay="#body-scroll-modal">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Login success Modal -end -->
-
     <!-- All Script -->
-    <!-- <script src="assets/js/script.js"></script> -->
-    <script src="assets/js/flyonui.js"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 
